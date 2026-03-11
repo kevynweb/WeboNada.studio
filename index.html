@@ -378,7 +378,7 @@ section{padding:6rem 5%;position:relative}
    ============================================= */
 #benefits{background:var(--navy)}
 .benefits-layout{display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:center}
-.hex-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;max-width:360px}
+.hex-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;max-width:360px;margin:0 auto}
 .hex-cell{aspect-ratio:1;border-radius:20px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:.5rem;padding:1rem;text-align:center;background:var(--glass);border:1px solid var(--glass-border);transition:transform .4s,border-color .3s,box-shadow .4s}
 .hex-cell:hover{transform:scale(1.08);border-color:rgba(61,155,255,.3);box-shadow:0 10px 30px rgba(0,0,0,.3)}
 .hex-cell.featured{background:linear-gradient(135deg,rgba(26,111,255,.15),rgba(124,58,237,.15));border-color:rgba(61,155,255,.3)}
@@ -476,7 +476,7 @@ section{padding:6rem 5%;position:relative}
 /* =============================================
    CTA
    ============================================= */
-#cta{background:var(--navy);text-align:center;padding:7rem 5%;position:relative;overflow:hidden}
+#cta{background:var(--navy);text-align:center;padding:4rem 5%;position:relative;overflow:hidden}
 .cta-bg{position:absolute;inset:0;z-index:0;background:radial-gradient(ellipse 70% 60% at 50% 50%,rgba(26,111,255,.08) 0%,transparent 70%)}
 .cta-content{position:relative;z-index:1;max-width:700px;margin:0 auto}
 #cta .section-title{font-size:clamp(2.2rem,4vw,3.2rem);margin-bottom:1.2rem}
@@ -519,7 +519,7 @@ footer{background:var(--navy);border-top:1px solid var(--glass-border);padding:3
 .footer-bottom{border-top:1px solid var(--glass-border);padding-top:1.5rem;display:flex;align-items:center;justify-content:space-between}
 .footer-bottom p{font-size:.8rem;color:var(--muted)}
 
-.float-cta{position:fixed;bottom:2rem;right:2rem;z-index:999;padding:.9rem 1.5rem;border-radius:50px;background:linear-gradient(135deg,var(--blue),var(--violet));color:#fff;text-decoration:none;font-weight:600;font-size:.85rem;font-family:var(--font-display);box-shadow:0 8px 30px rgba(26,111,255,.5);display:flex;align-items:center;gap:.5rem;transition:transform .3s,box-shadow .3s,opacity .4s;opacity:0;transform:translateY(20px);border:none}
+.float-cta{position:fixed;bottom:3rem;right:2rem;z-index:999;padding:.9rem 1.5rem;border-radius:50px;background:linear-gradient(135deg,var(--blue),var(--violet));color:#fff;text-decoration:none;font-weight:600;font-size:.85rem;font-family:var(--font-display);box-shadow:0 8px 30px rgba(26,111,255,.5);display:flex;align-items:center;gap:.5rem;transition:transform .3s,box-shadow .3s,opacity .4s;opacity:0;transform:translateY(20px);border:none}
 .float-cta.show{opacity:1;transform:translateY(0)}.float-cta:hover{transform:translateY(-3px);box-shadow:0 12px 40px rgba(26,111,255,.7)}
 .float-dot{width:7px;height:7px;border-radius:50%;background:var(--neon);animation:blink 2s infinite}
 #particle-canvas{position:fixed;inset:0;z-index:0;pointer-events:none;opacity:.35}
@@ -536,7 +536,10 @@ footer{background:var(--navy);border-top:1px solid var(--glass-border);padding:3
   .footer-top{grid-template-columns:1fr 1fr;gap:2rem}
 }
 @media(max-width:900px){
-  .benefits-layout{grid-template-columns:1fr}
+  .benefits-layout{grid-template-columns:1fr;text-align:center}
+  .benefit-item{justify-content:center;text-align:left}
+  .section-sub{margin:0 auto}
+  .section-label{justify-content:center}
   .contact-layout{grid-template-columns:1fr;gap:2rem}
   .testimonials-grid{grid-template-columns:1fr}
 }
@@ -548,8 +551,41 @@ footer{background:var(--navy);border-top:1px solid var(--glass-border);padding:3
   .service-card::after{display:none}.service-card{padding:1.8rem 1.5rem}
   .portfolio-grid{grid-template-columns:1fr}
   .form-row{grid-template-columns:1fr}
-  .footer-top{grid-template-columns:1fr}
+  /* Footer: brand full width, then nav cols in 2 columns */
+  .footer-top{grid-template-columns:1fr 1fr;gap:1.5rem}
+  .footer-brand{grid-column:1 / -1}
   .footer-bottom{flex-direction:column;gap:.5rem;text-align:center}
+
+  /* Hex grid centered */
+  .hex-grid{margin:0 auto}
+  .benefits-visual{display:flex;justify-content:center}
+
+  /* Process spine: contained between bubble centers */
+  .process-timeline{ padding-top:0; padding-bottom:0; }
+  .process-spine{
+    top:0; bottom:0;
+    left:28px; /* center of 56px bubble */
+    right:auto;
+    width:2px!important;
+    height:auto;
+    overflow:visible;
+    /* Clip to between first and last bubble center */
+    clip-path:inset(28px 0 28px 0);
+  }
+  .process-spine-fill{
+    position:absolute;
+    top:0;left:0;right:0;bottom:auto;
+    width:2px!important;height:0%;
+    background:linear-gradient(to bottom,var(--electric),var(--neon),var(--violet-light));
+    box-shadow:0 0 14px rgba(0,212,255,.6);
+  }
+  .proc-step{flex-direction:row;align-items:flex-start;text-align:left;padding:1.4rem 0;gap:1.2rem}
+  .proc-step:first-child{padding-top:0}
+  .proc-step:last-child{padding-bottom:0}
+
+  /* No gap between pricing and CTA */
+  #pricing{padding-bottom:2rem}
+  #cta{padding-top:3rem}
 }
 @media(min-width:769px) and (max-width:1000px){
   .services-grid{grid-template-columns:repeat(2,1fr)}
@@ -637,6 +673,7 @@ footer{background:var(--navy);border-top:1px solid var(--glass-border);padding:3
    PRICING SECTION
    ============================================= */
 #pricing { background: var(--navy); }
+#pricing + div.divider + section#cta, #pricing ~ #cta { padding-top: 4rem; }
 .pricing-header { text-align: center; margin-bottom: 3.5rem; }
 .pricing-header .section-label { justify-content: center; }
 .pricing-header .section-sub { margin: 0 auto; }
@@ -738,6 +775,84 @@ footer{background:var(--navy);border-top:1px solid var(--glass-border);padding:3
   .pricing-grid { grid-template-columns: 1fr; max-width: 500px; }
 }
 
+
+/* =============================================
+   HERO VISUAL MOBILE
+   ============================================= */
+.hero-visual-mobile{
+  display:none; /* hidden on desktop */
+  width:100%;
+  max-width:360px;
+  margin:2rem auto 2rem;
+}
+.hero-visual-mobile-inner{
+  width:100%;
+}
+@media(max-width:1100px){
+  .hero-visual-mobile{display:block}
+  .hero-content{max-width:100%}
+}
+@media(max-width:768px){
+  .hero-visual-mobile{max-width:300px;margin:1.5rem auto 1.8rem}
+}
+
+/* =============================================
+   TESTIMONIALS CAROUSEL
+   ============================================= */
+.testimonials-carousel{
+  position:relative;
+  overflow:hidden;
+  padding-bottom:1rem;
+}
+.testimonials-track{
+  display:flex;
+  gap:1.5rem;
+  transition:transform .45s cubic-bezier(.23,1,.32,1);
+  will-change:transform;
+}
+.testimonials-track .testimonial-card{
+  flex:0 0 calc(33.333% - 1rem);
+  min-width:0;
+}
+.carousel-nav{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:1rem;
+  margin-top:1.8rem;
+}
+.carousel-btn{
+  width:40px;height:40px;border-radius:50%;
+  background:var(--glass);border:1px solid var(--glass-border);
+  display:flex;align-items:center;justify-content:center;
+  cursor:pointer;color:var(--white);font-size:1rem;
+  transition:background .3s,border-color .3s;
+}
+.carousel-btn:hover{background:rgba(61,155,255,.15);border-color:rgba(61,155,255,.3)}
+.carousel-btn:disabled{opacity:.3;pointer-events:none}
+.carousel-dots{display:flex;gap:.5rem;align-items:center}
+.carousel-dot{
+  width:7px;height:7px;border-radius:50%;
+  background:var(--glass-border);transition:background .3s,transform .3s;
+  cursor:pointer;border:none;padding:0;
+}
+.carousel-dot.active{background:var(--electric);transform:scale(1.3)}
+
+@media(max-width:900px){
+  .testimonials-track .testimonial-card{flex:0 0 calc(50% - .75rem)}
+}
+@media(max-width:600px){
+  .testimonials-track .testimonial-card{flex:0 0 100%}
+  .testimonials-track{gap:1rem}
+}
+
+/* =============================================
+   FLOAT CTA — subido para no tapar el footer
+   ============================================= */
+@media(max-width:768px){
+  .float-cta{bottom:5rem;right:1.2rem;padding:.75rem 1.2rem;font-size:.8rem}
+}
+
 </style>
 </head>
 <body>
@@ -778,7 +893,6 @@ footer{background:var(--navy);border-top:1px solid var(--glass-border);padding:3
 
   <!-- CTA + hamburger juntos a la derecha -->
   <div class="nav-right">
-    <a href="#contact" class="nav-cta">Solicitar mi Web</a>
     <button class="hamburger" id="hamburger"
       aria-label="Abrir menú de navegación"
       aria-expanded="false"
@@ -825,6 +939,28 @@ footer{background:var(--navy);border-top:1px solid var(--glass-border);padding:3
       </span>
     </h1>
     <p class="hero-sub">Diseñamos sitios web estratégicos que atraen clientes, generan confianza y convierten visitas en oportunidades reales.</p>
+
+    <!-- Laptop visible solo en mobile, entre el texto y los CTAs -->
+    <div class="hero-visual-mobile" aria-hidden="true">
+      <div class="hero-visual-mobile-inner">
+        <div class="lp-lid" style="border-radius:10px 10px 0 0">
+          <div class="lp-cam"></div>
+          <div class="lp-screen" style="aspect-ratio:16/9;border-radius:4px">
+            <div class="lp-placeholder">
+              <div class="lp-play-ring">▶</div>
+              <span class="lp-hint">Video de presentación</span>
+            </div>
+          </div>
+          <div class="lp-statusbar">
+            <span><span class="lp-dot"></span>webonada.studio</span>
+            <span>● LIVE</span>
+          </div>
+        </div>
+        <div class="lp-hinge"></div>
+        <div class="lp-base"></div>
+      </div>
+    </div>
+
     <div class="hero-actions">
       <a href="#contact" class="btn-primary">Solicitar Cotización <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
       <a href="#portfolio" class="btn-secondary">Ver Portafolio <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M8 3l5 5-5 5M3 8h10" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
@@ -1051,10 +1187,21 @@ footer{background:var(--navy);border-top:1px solid var(--glass-border);padding:3
     <h2 class="section-title">Clientes Satisfechos</h2>
     <p class="section-sub" style="margin:0 auto">Resultados reales de negocios reales que confiaron en nosotros.</p>
   </div>
-  <div class="testimonials-grid">
-    <div class="testimonial-card reveal"><div class="stars">⭐⭐⭐⭐⭐</div><p class="testimonial-text">"Transformaron por completo la presencia digital de mi tienda. Las ventas crecieron más del 200% en los primeros dos meses."</p><div class="testimonial-author"><div class="author-avatar av-blue">MR</div><div><div class="author-name">María Rodríguez</div><div class="author-role">Fundadora, StyleShop</div></div></div></div>
-    <div class="testimonial-card reveal" style="transition-delay:.1s"><div class="stars">⭐⭐⭐⭐⭐</div><p class="testimonial-text">"La aplicación web que desarrollaron nos ahorró 20 horas semanales de trabajo manual. El ROI fue increíble desde el primer mes."</p><div class="testimonial-author"><div class="author-avatar av-cyan">JL</div><div><div class="author-name">Juan López</div><div class="author-role">CEO, LogiTech Solutions</div></div></div></div>
-    <div class="testimonial-card reveal" style="transition-delay:.2s"><div class="stars">⭐⭐⭐⭐⭐</div><p class="testimonial-text">"Profesionalismo y calidad excepcionales. Entregaron antes del tiempo acordado y el resultado superó todas nuestras expectativas."</p><div class="testimonial-author"><div class="author-avatar av-violet">AP</div><div><div class="author-name">Andrea Pérez</div><div class="author-role">Directora de Marketing, StartupX</div></div></div></div>
+  <div class="testimonials-carousel" id="testimonialsCarousel" aria-label="Testimonios de clientes" role="region">
+    <div class="testimonials-track" id="testimonialsTrack">
+      <div class="testimonial-card"><div class="stars" aria-label="5 de 5 estrellas">⭐⭐⭐⭐⭐</div><p class="testimonial-text">"Transformaron por completo la presencia digital de mi tienda. Las ventas crecieron más del 200% en los primeros dos meses."</p><div class="testimonial-author"><div class="author-avatar av-blue" aria-hidden="true">MR</div><div><div class="author-name">María Rodríguez</div><div class="author-role">Fundadora, StyleShop</div></div></div></div>
+      <div class="testimonial-card"><div class="stars" aria-label="5 de 5 estrellas">⭐⭐⭐⭐⭐</div><p class="testimonial-text">"La aplicación web que desarrollaron nos ahorró 20 horas semanales de trabajo manual. El ROI fue increíble desde el primer mes."</p><div class="testimonial-author"><div class="author-avatar av-cyan" aria-hidden="true">JL</div><div><div class="author-name">Juan López</div><div class="author-role">CEO, LogiTech Solutions</div></div></div></div>
+      <div class="testimonial-card"><div class="stars" aria-label="5 de 5 estrellas">⭐⭐⭐⭐⭐</div><p class="testimonial-text">"Profesionalismo y calidad excepcionales. Entregaron antes del tiempo acordado y el resultado superó todas nuestras expectativas."</p><div class="testimonial-author"><div class="author-avatar av-violet" aria-hidden="true">AP</div><div><div class="author-name">Andrea Pérez</div><div class="author-role">Directora de Marketing, StartupX</div></div></div></div>
+    </div>
+    <div class="carousel-nav">
+      <button class="carousel-btn" id="carouselPrev" aria-label="Testimonio anterior" disabled>‹</button>
+      <div class="carousel-dots" id="carouselDots" role="tablist" aria-label="Seleccionar testimonio">
+        <button class="carousel-dot active" role="tab" aria-selected="true" aria-label="Testimonio 1"></button>
+        <button class="carousel-dot" role="tab" aria-selected="false" aria-label="Testimonio 2"></button>
+        <button class="carousel-dot" role="tab" aria-selected="false" aria-label="Testimonio 3"></button>
+      </div>
+      <button class="carousel-btn" id="carouselNext" aria-label="Testimonio siguiente">›</button>
+    </div>
   </div>
 </section>
 
@@ -1615,6 +1762,92 @@ document.querySelectorAll('.service-card').forEach(card=>{
     card.style.setProperty('--my',((e.clientY-r.top)/r.height*100)+'%');
   });
 });
+
+/* =============================================
+   TESTIMONIALS CAROUSEL
+   ============================================= */
+(function(){
+  const track=document.getElementById('testimonialsTrack');
+  if(!track) return;
+  const cards=Array.from(track.children);
+  const prevBtn=document.getElementById('carouselPrev');
+  const nextBtn=document.getElementById('carouselNext');
+  const dots=Array.from(document.getElementById('carouselDots').children);
+  let current=0;
+
+  function getVisible(){
+    const w=window.innerWidth;
+    if(w<=600) return 1;
+    if(w<=900) return 2;
+    return 3;
+  }
+
+  function getCardWidth(){
+    const visible=getVisible();
+    const gap=visible>1?24:16; // 1.5rem or 1rem gap in px
+    const trackW=track.parentElement.offsetWidth;
+    return (trackW-(gap*(visible-1)))/visible;
+  }
+
+  function update(animate=true){
+    const cardW=getCardWidth();
+    const gap=getVisible()>1?24:16;
+    // Clamp current
+    const maxIdx=Math.max(0,cards.length-getVisible());
+    if(current>maxIdx) current=maxIdx;
+    // Set card widths
+    cards.forEach(c=>{c.style.flex=`0 0 ${cardW}px`});
+    // Move track
+    const offset=current*(cardW+gap);
+    if(!animate) track.style.transition='none';
+    track.style.transform=`translateX(-${offset}px)`;
+    if(!animate) setTimeout(()=>track.style.transition='',50);
+    // Update buttons
+    prevBtn.disabled=current===0;
+    nextBtn.disabled=current>=maxIdx;
+    // Update dots
+    dots.forEach((d,i)=>{
+      const active=i===current;
+      d.classList.toggle('active',active);
+      d.setAttribute('aria-selected',active?'true':'false');
+    });
+  }
+
+  prevBtn.addEventListener('click',()=>{ if(current>0){current--;update();} });
+  nextBtn.addEventListener('click',()=>{
+    const maxIdx=Math.max(0,cards.length-getVisible());
+    if(current<maxIdx){current++;update();}
+  });
+  dots.forEach((d,i)=>d.addEventListener('click',()=>{ current=i; update(); }));
+
+  // Touch/swipe support
+  let startX=0,isDragging=false;
+  track.addEventListener('touchstart',e=>{startX=e.touches[0].clientX;isDragging=true;},{passive:true});
+  track.addEventListener('touchend',e=>{
+    if(!isDragging)return;
+    const dx=e.changedTouches[0].clientX-startX;
+    if(dx<-40) nextBtn.click();
+    else if(dx>40) prevBtn.click();
+    isDragging=false;
+  },{passive:true});
+
+  // Auto-advance every 5s on mobile
+  let autoTimer;
+  function startAuto(){
+    if(getVisible()>=cards.length) return;
+    autoTimer=setInterval(()=>{
+      const maxIdx=Math.max(0,cards.length-getVisible());
+      current=current>=maxIdx?0:current+1;
+      update();
+    },5000);
+  }
+  function stopAuto(){ clearInterval(autoTimer); }
+  track.addEventListener('touchstart',stopAuto,{passive:true});
+  if(!prefersReducedMotion) startAuto();
+
+  window.addEventListener('resize',()=>update(false),{passive:true});
+  update(false);
+})();
 
 /* =============================================
    COOKIE BANNER (GDPR/LGPD)
