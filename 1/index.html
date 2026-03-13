@@ -108,68 +108,13 @@ body{font-family:var(--font-body);background:var(--navy);color:var(--white);over
    ============================================= */
 .logo{font-family:var(--font-display);text-decoration:none;display:inline-flex;flex-direction:column;align-items:center;user-select:none;gap:1px;line-height:1}
 .logo-row{display:inline-flex;align-items:baseline}
-
-/* Animación por letra — cada una baila por separado al hover Y al cargar */
-.logo-char{display:inline-block}
-/* HOVER */
-.logo:hover .logo-char-W{animation:charDance .55s cubic-bezier(.34,1.56,.64,1) both 0s}
-.logo:hover .logo-char-e{animation:charDance .55s cubic-bezier(.34,1.56,.64,1) both .04s}
-.logo:hover .logo-char-b{animation:charDance .55s cubic-bezier(.34,1.56,.64,1) both .08s}
-.logo:hover .logo-char-N{animation:charDance .55s cubic-bezier(.34,1.56,.64,1) both .12s}
-.logo:hover .logo-char-a2{animation:charDance .55s cubic-bezier(.34,1.56,.64,1) both .16s}
-.logo:hover .logo-char-d{animation:charDance .55s cubic-bezier(.34,1.56,.64,1) both .2s}
-.logo:hover .logo-char-a3{animation:charDance .55s cubic-bezier(.34,1.56,.64,1) both .24s}
-/* AUTO-PLAY on load via .logo-intro class added by JS */
-.logo-intro .logo-char-W{animation:charDance .55s cubic-bezier(.34,1.56,.64,1) both 0s}
-.logo-intro .logo-char-e{animation:charDance .55s cubic-bezier(.34,1.56,.64,1) both .05s}
-.logo-intro .logo-char-b{animation:charDance .55s cubic-bezier(.34,1.56,.64,1) both .10s}
-.logo-intro .logo-char-N{animation:charDance .55s cubic-bezier(.34,1.56,.64,1) both .15s}
-.logo-intro .logo-char-a2{animation:charDance .55s cubic-bezier(.34,1.56,.64,1) both .20s}
-.logo-intro .logo-char-d{animation:charDance .55s cubic-bezier(.34,1.56,.64,1) both .25s}
-.logo-intro .logo-char-a3{animation:charDance .55s cubic-bezier(.34,1.56,.64,1) both .30s}
-/* Scrolled nav: logo glow */
-nav.scrolled .logo-a, nav.scrolled .logo-b{
-  filter: drop-shadow(0 0 8px rgba(61,155,255,.55)) brightness(1.15);
-  transition: filter .4s;
-}
-nav.scrolled .logo-o{
-  text-shadow:0 0 22px rgba(255,107,53,.9),0 0 45px rgba(255,107,53,.5);
-}
-@keyframes charDance{
-  0%{transform:translateY(0) rotate(0) scale(1)}
-  35%{transform:translateY(-12px) rotate(-8deg) scale(1.2)}
-  65%{transform:translateY(-4px) rotate(4deg) scale(1.08)}
-  100%{transform:translateY(0) rotate(0) scale(1)}
-}
-
-.logo-a,.logo-b{font-size:2.9rem;font-weight:800;letter-spacing:-.5px;color:var(--electric);-webkit-text-fill-color:var(--electric);transition:filter .35s;will-change:filter}
-.logo-o{
-  font-size:2.9rem;
-  font-weight:300;
-  color:#ff6b35;
-  -webkit-text-fill-color:#ff6b35;
-  margin:0 1px;
-  line-height:1;
-  position:relative;
-  top:0px;
-  transition:color .3s,-webkit-text-fill-color .3s;
-  text-shadow:0 0 16px rgba(255,107,53,.75),0 0 36px rgba(255,107,53,.35);
-  animation:oBreath 3s ease-in-out infinite;
-  will-change:color,text-smooth;
-}
-@keyframes oBreath{
-  0%,100%{text-shadow:0 0 16px rgba(255,107,53,.75),0 0 36px rgba(255,107,53,.35)}
-  50%{text-shadow:0 0 30px rgba(255,107,53,1),0 0 60px rgba(255,107,53,.65),0 0 100px rgba(255,107,53,.2)}
-}
+.logo-a,.logo-b{font-size:2.9rem;font-weight:800;letter-spacing:-.5px;color:var(--electric);-webkit-text-fill-color:var(--electric);transition:filter .35s}
+.logo-o{font-size:.95rem;font-weight:300;color:rgba(255,255,255,.3);-webkit-text-fill-color:rgba(255,255,255,.3);margin:0 2px;transition:color .3s,-webkit-text-fill-color .3s}
 .logo-sub{font-size:.58rem;font-weight:400;letter-spacing:3.5px;color:rgba(255,255,255,.28);-webkit-text-fill-color:rgba(255,255,255,.28)}
 .logo:hover .logo-a,.logo:hover .logo-b{filter:brightness(1.4) drop-shadow(0 0 10px rgba(61,155,255,.8))}
-.logo:hover .logo-o{
-  color:#ff9a5c;-webkit-text-fill-color:#ff9a5c;
-  text-shadow:0 0 40px rgba(255,107,53,1),0 0 80px rgba(255,107,53,.7);
-  animation:none;
-}
+.logo:hover .logo-o{color:rgba(255,255,255,.55);-webkit-text-fill-color:rgba(255,255,255,.55)}
 .logo-footer .logo-a,.logo-footer .logo-b{font-size:1.25rem}
-.logo-footer .logo-o{font-size:1.25rem;font-weight:300;top:0px}
+.logo-footer .logo-o{font-size:.82rem;color:rgba(255,255,255,.18);-webkit-text-fill-color:rgba(255,255,255,.18)}
 .logo-footer .logo-sub{font-size:.54rem;letter-spacing:3px}
 
 /* =============================================
@@ -236,10 +181,11 @@ nav.scrolled{background:rgba(5,13,26,.92);backdrop-filter:blur(20px);border-bott
    ============================================= */
 #hero{min-height:100vh;display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden;padding:8rem 5% 5rem}
 .grid-bg{position:absolute;inset:0;z-index:0;background-image:linear-gradient(rgba(26,111,255,.07) 1px,transparent 1px),linear-gradient(90deg,rgba(26,111,255,.07) 1px,transparent 1px);background-size:60px 60px;mask-image:radial-gradient(ellipse 80% 70% at 50% 50%,black 40%,transparent 100%)}
+#three-canvas{position:absolute;inset:0;z-index:1;pointer-events:none}
 .orb{position:absolute;border-radius:50%;filter:blur(80px);pointer-events:none;z-index:0}
-.orb-1{width:500px;height:500px;background:rgba(26,111,255,.15);top:-100px;right:-100px;animation:drift 8s ease-in-out infinite alternate;will-change:transform}
-.orb-2{width:350px;height:350px;background:rgba(124,58,237,.12);bottom:0;left:-50px;animation:drift 10s ease-in-out infinite alternate-reverse;will-change:transform}
-.orb-3{width:200px;height:200px;background:rgba(0,212,255,.1);top:50%;left:50%;animation:drift 6s ease-in-out infinite alternate;will-change:transform}
+.orb-1{width:500px;height:500px;background:rgba(26,111,255,.15);top:-100px;right:-100px;animation:drift 8s ease-in-out infinite alternate}
+.orb-2{width:350px;height:350px;background:rgba(124,58,237,.12);bottom:0;left:-50px;animation:drift 10s ease-in-out infinite alternate-reverse}
+.orb-3{width:200px;height:200px;background:rgba(0,212,255,.1);top:50%;left:50%;animation:drift 6s ease-in-out infinite alternate}
 @keyframes drift{from{transform:translate(0,0) scale(1)}to{transform:translate(30px,20px) scale(1.1)}}
 
 .hero-content{position:relative;z-index:2;max-width:720px;margin:0 auto;text-align:center;display:flex;flex-direction:column;align-items:center}
@@ -251,13 +197,13 @@ nav.scrolled{background:rgba(5,13,26,.92);backdrop-filter:blur(20px);border-bott
 /* H1: keyword visible, slightly smaller — above the tagline */
 .hero-h1{
   font-family:var(--font-display);
-  font-size:clamp(.85rem,1.2vw,1rem);
+  font-size:clamp(1.05rem,1.6vw,1.3rem);
   font-weight:700;
   letter-spacing:1.5px;
   text-transform:uppercase;
   color:var(--neon);
   opacity:.85;
-  margin-bottom:1.4rem;
+  margin-bottom:1rem;
   animation:fadeSlideUp .8s ease both;
   line-height:1.4;
 }
@@ -304,7 +250,6 @@ nav.scrolled{background:rgba(5,13,26,.92);backdrop-filter:blur(20px);border-bott
   z-index:2;
   width:420px;
   animation:floatY 4s ease-in-out infinite;
-  will-change:transform;
 }
 @keyframes floatY{
   0%,100%{transform:translateY(-50%) translateY(0)}
@@ -312,7 +257,7 @@ nav.scrolled{background:rgba(5,13,26,.92);backdrop-filter:blur(20px);border-bott
 }
 
 #laptopTiltWrap{width:420px;perspective:850px}
-#laptopCard{width:100%;transform-style:preserve-3d;position:relative;will-change:transform}
+#laptopCard{width:100%;transform-style:preserve-3d;transition:transform .07s linear;position:relative}
 
 /* Laptop lid (tapa / pantalla) */
 .lp-lid{
@@ -398,7 +343,7 @@ nav.scrolled{background:rgba(5,13,26,.92);backdrop-filter:blur(20px);border-bott
 /* =============================================
    COMMON
    ============================================= */
-section{padding:8rem 5%;position:relative}
+section{padding:6rem 5%;position:relative}
 .section-label{display:inline-flex;align-items:center;gap:.5rem;font-size:.75rem;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:var(--electric);margin-bottom:1rem}
 .section-label::before{content:'';width:20px;height:1px;background:var(--electric)}
 .section-title{font-family:var(--font-display);font-size:clamp(2rem,3.5vw,2.8rem);font-weight:800;letter-spacing:-1.5px;line-height:1.15;margin-bottom:1rem}
@@ -408,471 +353,16 @@ section{padding:8rem 5%;position:relative}
 .reveal.visible{opacity:1;transform:translateY(0)}
 
 /* =============================================
-   WEB O NADA — SPLIT SCREEN FILOSOFÍA
+   WEB O NADA
    ============================================= */
-#web-o-nada {
-  background: var(--navy-mid);
-  position: relative;
-  overflow: hidden;
-  padding: 6rem 0 0;
-  display: flex;
-  flex-direction: column;
-}
-.won-header {
-  padding: 0 5% 0;
-  text-align: center;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-.won-split {
-  display: flex;
-  flex: 1;
-  min-height: 70vh;
-  position: relative;
-  margin-top: 3rem;
-}
-
-/* ── Centro: línea divisoria luminosa ── */
-.won-divider {
-  position: absolute;
-  left: 50%;
-  top: 0;
-  bottom: 0;
-  width: 1px;
-  background: linear-gradient(to bottom,
-    transparent 0%,
-    rgba(255,107,53,.8) 20%,
-    rgba(255,255,255,.9) 50%,
-    rgba(61,155,255,.8) 80%,
-    transparent 100%);
-  z-index: 10;
-  transform: translateX(-0.5px);
-  box-shadow: 0 0 20px rgba(255,107,53,.4), 0 0 40px rgba(61,155,255,.2);
-  transition: box-shadow .5s;
-}
-/* Union flash on the divider */
-.won-divider.flash {
-  animation: dividerFlash .7s ease forwards;
-}
-@keyframes dividerFlash {
-  0%   { box-shadow: 0 0 20px rgba(255,107,53,.4), 0 0 40px rgba(61,155,255,.2); width: 1px; }
-  30%  { box-shadow: 0 0 80px rgba(255,255,255,.9), 0 0 160px rgba(255,255,255,.5); width: 3px; background: #fff; }
-  60%  { box-shadow: 0 0 40px rgba(61,155,255,.8), 0 0 80px rgba(0,212,255,.4); width: 1px; }
-  100% { box-shadow: 0 0 20px rgba(255,107,53,.4), 0 0 40px rgba(61,155,255,.2); width: 1px; }
-}
-
-/* ── Mitad base ── */
-.won-half {
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  padding: 6rem 5% 6rem;
-  position: relative;
-  overflow: hidden;
-  cursor: default;
-}
-.won-left {
-  padding-right: calc(5% + 60px);
-  background: rgba(10, 22, 40, 0.5);
-  transition: background .6s ease;
-}
-.won-right {
-  padding-left: calc(5% + 60px);
-  background: rgba(2, 5, 10, 0.95);
-  align-items: flex-start;
-  transition: background .6s ease;
-}
-.won-left:hover  { background: rgba(26,111,255, 0.06); }
-.won-right:hover { background: rgba(0,0,0,1); }
-
-/* ── Hover glow WEB — luz ambiental suave ── */
-
-/* La luz real es un radial detrás del texto, no drop-shadow directo */
-.won-left-big {
-  transition: filter .7s cubic-bezier(.4,0,.2,1);
-}
-.won-left:hover .won-left-big {
-  filter: drop-shadow(0 0 8px rgba(0,212,255,.22)) brightness(1.04);
-}
-
-/* Halo ambiental que ilumina la sección entera */
-.won-left::after {
-  content:'';
-  position:absolute;
-  inset:0;
-  background:
-    radial-gradient(ellipse 55% 45% at 22% 48%,
-      rgba(0,180,255,.10) 0%,
-      rgba(26,111,255,.05) 40%,
-      transparent 72%);
-  opacity:0;
-  transition: opacity .7s ease;
-  pointer-events:none;
-  z-index:0;
-}
-.won-left:hover::after { opacity:1; }
-
-/* ── Hover glow NADA — emerge de la oscuridad ── */
-.won-right-title {
-  transition: color .7s ease, -webkit-text-fill-color .7s ease, filter .7s ease;
-}
-.won-right:hover .won-right-title {
-  color: rgba(240,246,255,.14) !important;
-  -webkit-text-fill-color: rgba(240,246,255,.14) !important;
-  filter: drop-shadow(0 0 8px rgba(200,220,255,.12));
-}
-
-/* Halo NADA: muy sutil, como si la oscuridad tuviera profundidad */
-.won-right::after {
-  content:'';
-  position:absolute;
-  inset:0;
-  background:
-    radial-gradient(ellipse 50% 40% at 78% 52%,
-      rgba(180,200,255,.04) 0%,
-      transparent 65%);
-  opacity:0;
-  transition: opacity .8s ease;
-  pointer-events:none;
-  z-index:0;
-}
-.won-right:hover::after { opacity:1; }
-
-/* ── Mobile scroll: misma filosofía — luz ambiente, no explosión ── */
-.won-mob-word-web {
-  transition: filter 1s cubic-bezier(.4,0,.2,1);
-}
-.won-mob-word-web.glow-web {
-  filter: drop-shadow(0 0 8px rgba(0,212,255,.22)) brightness(1.04);
-}
-
-/* Halo de fondo mobile WEB */
-.won-mob-top {
-  transition: background 1s ease;
-}
-.won-mob-top.glow-web {
-  background: linear-gradient(160deg,
-    rgba(4,22,55,.98) 0%,
-    rgba(0,14,36,.95) 50%,
-    rgba(2,20,48,.95) 100%);
-}
-/* Punto de luz detrás de WEB en mobile */
-.won-mob-top::after {
-  content:'';
-  position:absolute;
-  top:0; left:0; right:0; bottom:0;
-  background: radial-gradient(ellipse 60% 50% at 20% 35%,
-    rgba(0,160,255,.09) 0%, transparent 65%);
-  opacity:0;
-  transition: opacity .8s ease;
-  pointer-events:none;
-  z-index:0;
-}
-.won-mob-top.glow-web::after { opacity:1; }
-
-.won-mob-word-nada {
-  color: rgba(240,246,255,.16) !important;
-  -webkit-text-fill-color: rgba(240,246,255,.16) !important;
-  filter: drop-shadow(0 0 8px rgba(200,220,255,.14));
-}
-
-/* Left: grid texture */
-.won-left::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background-image:
-    linear-gradient(rgba(61,155,255,.04) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(61,155,255,.04) 1px, transparent 1px);
-  background-size: 44px 44px;
-  mask-image: radial-gradient(ellipse 70% 80% at 30% 50%, black 40%, transparent 90%);
-  pointer-events: none;
-}
-/* Right: scanlines */
-.won-right::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background: repeating-linear-gradient(
-    0deg,
-    transparent, transparent 3px,
-    rgba(255,255,255,.008) 3px,
-    rgba(255,255,255,.008) 4px);
-  pointer-events: none;
-  opacity: .6;
-  transition: opacity .4s;
-}
-.won-right:hover::before { opacity: 1; }
-
-/* Noise canvas on right */
-.won-noise-canvas {
-  position: absolute; inset: 0;
-  pointer-events: none;
-  opacity: .03;
-  mix-blend-mode: screen;
-}
-
-/* ── Side labels ── */
-.won-side-label {
-  font-size: .65rem;
-  font-weight: 700;
-  letter-spacing: 3px;
-  text-transform: uppercase;
-  margin-bottom: 1.5rem;
-  display: flex;
-  align-items: center;
-  gap: .7rem;
-}
-.won-left .won-side-label { color: var(--electric); }
-.won-right .won-side-label { color: rgba(240,246,255,.18); }
-.won-side-label::before { content: ''; display: block; width: 22px; height: 1px; }
-.won-left .won-side-label::before  { background: var(--electric); }
-.won-right .won-side-label::before { background: rgba(240,246,255,.18); }
-
-/* ── BIG TITLE LEFT: WEB ── mirroring NADA style but vivid ── */
-.won-left-big {
-  font-family: var(--font-display);
-  font-size: clamp(4rem, 9vw, 9rem);
-  font-weight: 900;
-  letter-spacing: -5px;
-  line-height: .9;
-  margin-bottom: 2rem;
-  background: linear-gradient(135deg, var(--electric) 0%, var(--neon) 60%, var(--violet-light) 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-  filter: drop-shadow(0 0 28px rgba(0,212,255,.4));
-  opacity: 1;
-  will-change: filter;
-}
-.won-left-big.arrived {
-  transform: translateX(0) rotate(0);
-  opacity: 1;
-}
-.won-left-big.united {
-  filter: drop-shadow(0 0 60px rgba(0,212,255,.9)) drop-shadow(0 0 120px rgba(0,212,255,.4));
-}
-
-/* ── BIG TITLE RIGHT: NADA ── */
-.won-right-title {
-  font-family: var(--font-display);
-  font-size: clamp(4rem, 9vw, 9rem);
-  font-weight: 900;
-  letter-spacing: -5px;
-  line-height: .9;
-  color: rgba(240,246,255,.07);
-  -webkit-text-fill-color: rgba(240,246,255,.07);
-  margin-bottom: 2rem;
-  opacity: 1;
-  will-change: filter;
-}
-.won-right-title.arrived {
-  transform: translateX(0) rotate(0);
-  opacity: 1;
-}
-.won-right-title.united {
-  color: rgba(240,246,255,.18) !important;
-  -webkit-text-fill-color: rgba(240,246,255,.18) !important;
-  text-shadow: 0 0 60px rgba(255,255,255,.15);
-}
-
-/* Body text left */
-.won-left-sub {
-  font-family: var(--font-display);
-  font-size: clamp(.9rem, 1.2vw, 1.05rem);
-  font-weight: 700;
-  color: var(--white);
-  line-height: 1.4;
-  letter-spacing: -.2px;
-  margin-bottom: 1.2rem;
-}
-.won-left-sub em { font-style: normal; color: var(--neon); }
-.won-left-body {
-  display: flex;
-  flex-direction: column;
-  gap: .9rem;
-  max-width: 360px;
-}
-.won-left-body p { font-size: .88rem; color: var(--muted); line-height: 1.8; font-weight: 300; }
-.won-left-body strong { color: var(--white); font-weight: 600; }
-.won-left-tag {
-  margin-top: 1.5rem;
-  display: inline-flex; align-items: center; gap: .5rem;
-  padding: .4rem 1rem; border-radius: 50px;
-  background: rgba(0,212,255,.07); border: 1px solid rgba(0,212,255,.2);
-  font-size: .75rem; font-weight: 600; color: var(--neon); letter-spacing: .3px;
-  width: fit-content;
-}
-.won-left-tag::before {
-  content: ''; width: 5px; height: 5px; border-radius: 50%;
-  background: var(--neon); box-shadow: 0 0 8px var(--neon);
-  animation: blink 2s infinite;
-}
-
-/* Body text right */
-.won-right-body {
-  display: flex; flex-direction: column; gap: 1rem;
-  max-width: 360px;
-}
-.won-right-body p { font-size: .88rem; color: rgba(139,163,192,.35); line-height: 1.9; font-weight: 300; transition: color .5s; }
-.won-right:hover .won-right-body p { color: rgba(139,163,192,.55); }
-.won-right-body em { font-style: normal; color: rgba(240,246,255,.5); }
-.won-right-verdict {
-  margin-top: 1.5rem;
-  font-family: var(--font-display);
-  font-size: .8rem; font-weight: 700; letter-spacing: 1px;
-  color: rgba(240,246,255,.14);
-  border-left: 2px solid rgba(240,246,255,.08);
-  padding-left: 1rem; line-height: 1.6;
-  transition: color .4s, border-color .4s;
-}
-.won-right:hover .won-right-verdict { color: rgba(240,246,255,.3); border-color: rgba(240,246,255,.15); }
-
-/* Glitch eliminado */
-
-/* Union celebration flash overlay */
-.won-union-flash {
-  position: absolute;
-  inset: 0;
-  pointer-events: none;
-  z-index: 50;
-  background: radial-gradient(ellipse 60% 40% at 50% 50%, rgba(255,255,255,.12) 0%, transparent 70%);
-  opacity: 0;
-}
-.won-union-flash.flash {
-  animation: unionFlash .8s ease forwards;
-}
-@keyframes unionFlash {
-  0%   { opacity: 0; }
-  25%  { opacity: 1; }
-  100% { opacity: 0; }
-}
-
-/* =============================================
-   MOBILE — SPLIT DIAGONAL (WEB arriba / NADA abajo)
-   ============================================= */
-
-/* Bloque mobile oculto en desktop */
-.won-mobile{ display:none }
-
-@media(max-width:768px){
-  /* Ocultar split horizontal desktop */
-  .won-split{ display:none }
-  .won-mobile{ display:flex; flex-direction:column }
-  /* Quitar padding vertical de la sección entera en mobile */
-  #web-o-nada{ padding-top:0; padding-bottom:0; }
-  .won-header{ padding:2.5rem 6% 0; }
-
-  /* Stage ocupa 100% del ancho y alto visible — de borde a borde */
-  .won-mob-stage{
-    position:relative;
-    width:100%;
-    height:110vw;
-    min-height:400px;
-    max-height:560px;
-    overflow:hidden;
-    margin-top:2rem;
-  }
-
-  /* Mitad superior — WEB: contenido pegado arriba-izquierda */
-  .won-mob-top{
-    position:absolute;
-    inset:0;
-    background:linear-gradient(160deg,#091e38 0%,#061020 100%);
-    clip-path:polygon(0 0, 100% 0, 100% 38%, 0 62%);
-    display:flex;
-    flex-direction:column;
-    justify-content:flex-start;
-    align-items:flex-start;
-    padding:7% 9% 0;
-  }
-
-  /* Mitad inferior — NADA: contenido pegado abajo-derecha */
-  .won-mob-bot{
-    position:absolute;
-    inset:0;
-    background:#020407;
-    clip-path:polygon(0 64%, 100% 40%, 100% 100%, 0 100%);
-    display:flex;
-    flex-direction:column;
-    justify-content:flex-end;
-    align-items:flex-end;
-    padding:0 9% 7%;
-  }
-
-  /* Línea diagonal luminosa encima de todo */
-  .won-mob-svg{
-    position:absolute;
-    inset:0;
-    width:100%;
-    height:100%;
-    pointer-events:none;
-    z-index:10;
-  }
-
-  /* Textos grandes */
-  .won-mob-word-web{
-    font-family:var(--font-display);
-    font-size:clamp(4rem,22vw,7rem);
-    font-weight:900;
-    letter-spacing:-4px;
-    line-height:.95;
-    background:linear-gradient(135deg,var(--electric) 0%,var(--neon) 60%,var(--violet-light) 100%);
-    -webkit-background-clip:text;
-    -webkit-text-fill-color:transparent;
-    background-clip:text;
-    filter:drop-shadow(0 0 24px rgba(0,212,255,.4));
-  }
-  .won-mob-label-web{
-    font-family:var(--font-display);
-    font-size:.58rem;
-    font-weight:600;
-    letter-spacing:2.5px;
-    text-transform:uppercase;
-    color:rgba(61,155,255,.6);
-    margin-top:.4rem;
-  }
-  .won-mob-sub-web{
-    font-size:.75rem;
-    color:rgba(139,163,192,.6);
-    line-height:1.6;
-    font-weight:300;
-    margin-top:.5rem;
-    max-width:200px;
-  }
-
-  .won-mob-word-nada{
-    font-family:var(--font-display);
-    font-size:clamp(2.8rem,15vw,5rem);
-    font-weight:900;
-    letter-spacing:-3px;
-    line-height:.95;
-    color:rgba(220,235,255,.07);
-    -webkit-text-fill-color:rgba(220,235,255,.07);
-    text-align:right;
-  }
-  .won-mob-label-nada{
-    font-family:var(--font-display);
-    font-size:.58rem;
-    font-weight:600;
-    letter-spacing:2.5px;
-    text-transform:uppercase;
-    color:rgba(220,235,255,.16);
-    margin-bottom:.4rem;
-    text-align:right;
-  }
-  .won-mob-sub-nada{
-    font-size:.75rem;
-    color:rgba(139,163,192,.25);
-    line-height:1.6;
-    font-weight:300;
-    margin-top:.5rem;
-    max-width:200px;
-    text-align:right;
-  }
-}
+#web-o-nada{background:var(--navy-mid);position:relative;overflow:hidden}
+#web-o-nada::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 65% 90% at 50% 50%,rgba(26,111,255,.07) 0%,transparent 70%);pointer-events:none}
+.won-center{max-width:720px;margin:0 auto;display:flex;flex-direction:column;align-items:center;text-align:center;position:relative;z-index:1}
+.won-body{display:flex;flex-direction:column;gap:1rem}
+.won-paragraph{font-size:1.05rem;color:var(--muted);line-height:1.8;font-weight:300;max-width:620px;margin:0 auto}
+.won-paragraph strong{color:var(--white);font-weight:600}
+.won-highlight{margin-top:.8rem;padding:1.4rem 2rem;border-radius:16px;background:rgba(0,212,255,.05);border:1px solid rgba(0,212,255,.15);border-top:2px solid var(--neon);font-size:1.1rem;font-family:var(--font-display);font-weight:700;color:var(--white);line-height:1.6;letter-spacing:-.2px;max-width:560px;margin-left:auto;margin-right:auto}
+.won-highlight span{background:linear-gradient(135deg,var(--electric),var(--neon));-webkit-background-clip:text;-webkit-text-fill-color:transparent}
 
 /* =============================================
    SERVICES
@@ -898,8 +388,10 @@ section{padding:8rem 5%;position:relative}
 .service-card:hover .si-orange{box-shadow:0 8px 24px rgba(255,140,0,.35)}.service-card:hover .si-pink{box-shadow:0 8px 24px rgba(236,72,153,.35)}
 .svc-title{font-family:var(--font-display);font-size:1.05rem;font-weight:700;color:var(--white);letter-spacing:-.3px;position:relative;z-index:1;transition:color .35s}
 .service-card:hover .svc-title{color:var(--neon)}
-.svc-desc{font-size:.85rem;color:var(--muted);line-height:1.65;font-weight:300;position:relative;z-index:1;max-height:none;overflow:visible;opacity:1;margin-top:.3rem}
-.svc-link{display:inline-flex;align-items:center;gap:.35rem;font-size:.75rem;color:var(--electric);font-weight:600;position:relative;z-index:1;opacity:1;transform:none;margin-top:.3rem}
+.svc-desc{font-size:.85rem;color:var(--muted);line-height:1.65;font-weight:300;position:relative;z-index:1;max-height:0;overflow:hidden;opacity:0;transition:max-height .4s ease,opacity .35s ease,margin-top .3s ease;margin-top:0}
+.service-card:hover .svc-desc{max-height:120px;opacity:1;margin-top:.2rem}
+.svc-link{display:inline-flex;align-items:center;gap:.35rem;font-size:.75rem;color:var(--electric);font-weight:600;position:relative;z-index:1;opacity:0;transform:translateY(6px);transition:opacity .3s .1s,transform .3s .1s}
+.service-card:hover .svc-link{opacity:1;transform:translateY(0)}
 
 /* =============================================
    BENEFITS
@@ -933,7 +425,7 @@ section{padding:8rem 5%;position:relative}
 .proc-bubble{width:90px;height:90px;border-radius:50%;background:var(--navy-mid);border:2px solid var(--glass-border);display:flex;align-items:center;justify-content:center;font-size:1.9rem;position:relative;transition:border-color .5s,box-shadow .5s;flex-shrink:0}
 .proc-bubble::before{content:'';position:absolute;inset:-8px;border-radius:50%;border:1.5px solid transparent;transition:border-color .5s,box-shadow .5s}
 .proc-badge{position:absolute;top:-6px;right:-6px;width:26px;height:26px;border-radius:50%;background:var(--navy-mid);border:2px solid rgba(139,163,192,.35);font-family:var(--font-display);font-size:.72rem;font-weight:800;color:var(--muted);display:flex;align-items:center;justify-content:center;line-height:1;transition:background .5s,color .4s,border-color .5s;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}
-.proc-content{opacity:0;transform:translateY(18px);transition:opacity .5s cubic-bezier(.22,1,.36,1),transform .5s cubic-bezier(.22,1,.36,1)}
+.proc-content{opacity:0;transform:translateY(18px);transition:opacity .65s cubic-bezier(.22,1,.36,1),transform .65s cubic-bezier(.22,1,.36,1)}
 .proc-tag{display:inline-flex;align-items:center;gap:.4rem;font-size:.66rem;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:var(--muted);margin-bottom:.4rem;transition:color .4s}
 .proc-dot{width:5px;height:5px;border-radius:50%;background:var(--muted);transition:background .4s}
 .proc-title{font-family:var(--font-display);font-size:1.5rem;font-weight:600;letter-spacing:-.4px;color:var(--white);margin-bottom:.35rem;line-height:1.2}
@@ -1086,8 +578,7 @@ footer{background:var(--navy);border-top:1px solid var(--glass-border);padding:3
   .testimonials-grid{grid-template-columns:1fr}
 }
 @media(max-width:768px){
-  section{padding:5rem 5%}
-  #web-o-nada{padding:0}
+  section{padding:4rem 5%}
   .services-grid{grid-template-columns:1fr}
   .svc-desc{max-height:none!important;opacity:1!important;margin-top:.5rem!important}
   .svc-link{opacity:1!important;transform:none!important}
@@ -1169,7 +660,7 @@ footer{background:var(--navy);border-top:1px solid var(--glass-border);padding:3
   .hero-badge::before { animation: none !important; }
   .float-dot { animation: none !important; }
   .reveal { opacity: 1; transform: none; transition: none; }
-  #particle-canvas { display: none !important; }
+  #particle-canvas, #three-canvas { display: none !important; }
 }
 
 /* =============================================
@@ -1214,57 +705,34 @@ footer{background:var(--navy);border-top:1px solid var(--glass-border);padding:3
 #cookie-banner.show { transform: translateY(0); }
 #cookie-banner p { font-size: .82rem; color: rgba(240,246,255,.7); line-height: 1.6; flex: 1; min-width: 200px; }
 #cookie-banner a { color: var(--electric); text-decoration: underline; }
-.cookie-actions { display: flex; gap: .7rem; flex-shrink: 0; flex-wrap: wrap; justify-content: center; }
+.cookie-actions { display: flex; gap: .7rem; flex-shrink: 0; }
 .cookie-btn-accept {
   padding: .55rem 1.2rem; border-radius: 50px;
   background: linear-gradient(135deg, var(--blue), var(--violet));
   color: #fff; border: none; font-size: .82rem; font-weight: 600;
   cursor: pointer; font-family: var(--font-display);
-  order: 2;
 }
 .cookie-btn-decline {
   padding: .55rem 1.2rem; border-radius: 50px;
   background: transparent; border: 1px solid rgba(255,255,255,.15);
   color: var(--muted); font-size: .82rem; cursor: pointer;
   font-family: var(--font-display);
-  order: 1;
-}
-#cookie-banner { justify-content: center; text-align: center; }
-#cookie-banner p { text-align: center; flex-basis: 100%; min-width: 0; }
-@media(min-width:680px) {
-  #cookie-banner { justify-content: space-between; text-align: left; }
-  #cookie-banner p { flex-basis: auto; flex: 1; text-align: left; }
 }
 
 /* =============================================
    PRICING SECTION
    ============================================= */
-#pricing { background: var(--navy); position: relative; }
+#pricing { background: var(--navy); }
+#pricing + div.divider + section#cta, #pricing ~ #cta { padding-top: 4rem; }
 .pricing-header { text-align: center; margin-bottom: 3.5rem; }
 .pricing-header .section-label { justify-content: center; }
 .pricing-header .section-sub { margin: 0 auto; }
-
-/* ── Grid desktop ── */
 .pricing-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 1.5rem;
   max-width: 1000px;
   margin: 0 auto;
-}
-
-/* ── Dots — ocultos en desktop ── */
-.pricing-dots {
-  display: none;
-}
-
-/* ── CTA inferior ── */
-.pricing-cta-bottom {
-  text-align: center;
-  margin-top: 5rem;
-  padding-top: 4rem;
-  border-top: 1px solid var(--glass-border);
-  position: relative;
 }
 .pricing-card {
   background: rgba(255,255,255,.03);
@@ -1351,48 +819,7 @@ footer{background:var(--navy);border-top:1px solid var(--glass-border);padding:3
   line-height: 1.6;
 }
 @media(max-width:768px) {
-  /* Carrusel móvil */
-  .pricing-grid {
-    display: flex;
-    overflow: hidden;
-    gap: 0;
-    max-width: 100%;
-    margin: 0;
-    position: relative;
-  }
-  .pricing-card {
-    flex: 0 0 88%;
-    max-width: 88%;
-    margin: 0 auto;
-    scroll-snap-align: center;
-    transition: transform .4s cubic-bezier(.23,1,.32,1), opacity .4s, box-shadow .4s;
-    opacity: .5;
-    transform: scale(.93);
-  }
-  .pricing-card.pc-active {
-    opacity: 1;
-    transform: scale(1);
-  }
-  .pricing-dots {
-    display: flex;
-    justify-content: center;
-    gap: .5rem;
-    margin-top: 1.5rem;
-  }
-  .pricing-dot {
-    width: 8px; height: 8px;
-    border-radius: 50%;
-    background: var(--glass-border);
-    border: none;
-    cursor: pointer;
-    padding: 0;
-    transition: background .3s, transform .3s;
-  }
-  .pricing-dot.active {
-    background: var(--electric);
-    transform: scale(1.3);
-  }
-  .pricing-cta-bottom { margin-top: 3rem; padding-top: 3rem; }
+  .pricing-grid { grid-template-columns: 1fr; }
 }
 @media(min-width:769px) and (max-width:1000px) {
   .pricing-grid { grid-template-columns: 1fr; max-width: 500px; }
@@ -1533,9 +960,7 @@ footer{background:var(--navy);border-top:1px solid var(--glass-border);padding:3
      ============================================= -->
 <nav id="navbar" role="navigation" aria-label="Navegación principal">
   <a href="#" class="logo" aria-label="WeboNada.Studio">
-    <span class="logo-row">
-      <span class="logo-a"><span class="logo-char logo-char-W">W</span><span class="logo-char logo-char-e">e</span><span class="logo-char logo-char-b">b</span></span><span class="logo-o logo-char">o</span><span class="logo-b"><span class="logo-char logo-char-N">N</span><span class="logo-char logo-char-a2">a</span><span class="logo-char logo-char-d">d</span><span class="logo-char logo-char-a3">a</span></span>
-    </span>
+    <span class="logo-row"><span class="logo-a">Web</span><span class="logo-o">o</span><span class="logo-b">Nada</span></span>
     <span class="logo-sub">.Studio</span>
   </a>
 
@@ -1585,7 +1010,8 @@ footer{background:var(--navy);border-top:1px solid var(--glass-border);padding:3
 <section id="hero" aria-label="Presentación">
   <div class="grid-bg"></div>
   <div class="orb orb-1"></div><div class="orb orb-2"></div><div class="orb orb-3"></div>
-  
+  <canvas id="three-canvas" aria-hidden="true" role="presentation"></canvas>
+
   <div class="hero-content">
     <!-- H1 SEO: keyword principal que Google indexa -->
     <h1 class="hero-h1">Diseño de páginas web profesionales</h1>
@@ -1598,7 +1024,7 @@ footer{background:var(--navy);border-top:1px solid var(--glass-border);padding:3
       </span>
     </p>
 
-    <p class="hero-sub">Creamos web modernas y construimos el estándar,<br>el resto solo es ancho de banda.<br></p>
+    <p class="hero-sub">Creamos páginas web modernas para negocios que quieren vender más online.<br><span class="hero-sub-tags">Diseño web profesional&nbsp;·&nbsp;SEO&nbsp;·&nbsp;Sitios rápidos y optimizados</span></p>
 
     <!-- Laptop visible solo en mobile, entre el texto y los CTAs -->
     <div class="hero-visual-mobile" aria-hidden="true">
@@ -1626,8 +1052,8 @@ footer{background:var(--navy);border-top:1px solid var(--glass-border);padding:3
       <a href="#portfolio" class="btn-secondary">Ver Portafolio <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M8 3l5 5-5 5M3 8h10" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
     </div>
     <div class="hero-stats">
-      <div class="stat"><span class="stat-num" data-counter data-target="20" data-suffix="+">20+</span><span class="stat-label">Proyectos entregados</span></div>
-      <div class="stat"><span class="stat-num" data-counter data-target="98" data-suffix="%">98%</span><span class="stat-label">Clientes satisfechos</span></div>
+      <div class="stat"><span class="stat-num">20+</span><span class="stat-label">Proyectos entregados</span></div>
+      <div class="stat"><span class="stat-num">98%</span><span class="stat-label">Clientes satisfechos</span></div>
       <div class="stat"><span class="stat-num">4.8★</span><span class="stat-label">Valoración promedio</span></div>
     </div>
   </div>
@@ -1694,99 +1120,24 @@ footer{background:var(--navy);border-top:1px solid var(--glass-border);padding:3
 
 <div class="divider"></div>
 
-<!-- WEB O NADA — SPLIT SCREEN FILOSOFÍA -->
-<section id="web-o-nada" aria-label="Nuestra filosofía">
-  <div class="won-header">
-    <div class="section-label" style="justify-content:center">Nuestra Filosofía</div>
-    <h2 class="section-title" style="text-align:center;margin-bottom:1rem">¿Qué significa<br><span style="background:linear-gradient(135deg,var(--electric),var(--neon),var(--violet-light));-webkit-background-clip:text;-webkit-text-fill-color:transparent">Web o Nada?</span></h2>
-   
-  </div>
-  <div class="won-split">
-
-    <!-- Línea divisoria central luminosa -->
-    <div class="won-divider" id="wonDivider"></div>
-
-    <!-- Flash de unión (overlay central) -->
-    <div class="won-union-flash" id="wonUnionFlash"></div>
-
-    <!-- LADO IZQUIERDO: WEB -->
-    <div class="won-half won-left" id="wonLeft">
-      <div class="won-side-label">La herramienta</div>
-
-      <div class="won-left-big" id="wonLeftBig">WEB</div>
-
-      <div class="won-left-sub">La web no es un folleto digital.<br>Es una <em>herramienta de precisión.</em></div>
-
-      <div class="won-left-body">
-        <p>Una web debe ser <strong>rápida, elegante y efectiva</strong> por diseño. No por accidente. Cada milisegundo cuenta.</p>
-        <p>Es la base donde se construye tu <strong>autoridad digital</strong>. Aquí la web es parte del estándar, no de la excepción.</p>
-      </div>
-
-      <div class="won-left-tag">Aquí construimos el estándar</div>
-    </div>
-
-    <!-- LADO DERECHO: NADA -->
-    <div class="won-half won-right" id="wonRight">
-      <canvas class="won-noise-canvas" id="wonNoiseCanvas"></canvas>
-
-      <div class="won-side-label">El rechazo</div>
-
-      <div class="won-right-title" id="wonRightTitle">NADA</div>
-
-      <div class="won-right-body">
-        <p>En un mundo saturado de sitios lentos y mediocres, <em>"nada"</em> es el rechazo a lo que no funciona.</p>
-        <p>Si tarda en cargar o confunde al usuario — <em>no sirve.</em> En este estudio <em>o es excelente o no es nada.</em></p>
-      </div>
-
-      <div class="won-right-verdict">
-        "Aquí la mediocridad<br>no tiene dirección IP."
+<!-- WEB O NADA -->
+<section id="web-o-nada">
+  <div class="won-center reveal">
+    <div class="section-label" style="justify-content:center">Nuestra filosofía</div>
+    <h2 class="section-title" style="text-align:center;margin-bottom:1.6rem">
+      ¿Qué significa<br>
+      <span style="background:linear-gradient(135deg,var(--electric),var(--neon));-webkit-background-clip:text;-webkit-text-fill-color:transparent">Web o Nada?</span>
+    </h2>
+    <div class="won-body">
+      <p class="won-paragraph">Muchas empresas tienen páginas web que simplemente <strong>existen</strong>. No generan clientes, no transmiten valor y pasan completamente desapercibidas en el mundo digital.</p>
+      <p class="won-paragraph">Nosotros creemos que una web debe tener un <strong>propósito claro</strong>: atraer a las personas correctas, convencerlas de que eres la mejor opción y convertir esa visita en una oportunidad real de negocio.</p>
+      <p class="won-paragraph">Una página que no hace eso no te está ayudando — te está <strong>costando clientes</strong> cada día que pasa.</p>
+      <div class="won-highlight">
+        Por eso, para nosotros solo hay dos opciones:<br>
+        <span>una Web estratégica… o Nada.</span>
       </div>
     </div>
-
   </div>
-
-  <!-- MOBILE: split diagonal WEB arriba / NADA abajo -->
-  <div class="won-mobile">
-    <div class="won-mob-stage">
-
-      <!-- WEB — mitad superior -->
-      <div class="won-mob-top">
-        <div class="won-mob-word-web">WEB</div>
-        <div class="won-mob-label-web">— La herramienta</div>
-        <div class="won-mob-sub-web">Rápida, elegante y efectiva por diseño. Cada milisegundo cuenta.</div>
-      </div>
-
-      <!-- NADA — mitad inferior -->
-      <div class="won-mob-bot">
-        <div class="won-mob-word-nada">NADA</div>
-        <div class="won-mob-label-nada">— El rechazo</div>
-        <div class="won-mob-sub-nada">O es excelente o no es nada. La mediocridad no tiene dirección IP.</div>
-      </div>
-
-      <!-- Línea diagonal luminosa -->
-      <svg class="won-mob-svg" viewBox="0 0 100 100" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
-        <defs>
-          <linearGradient id="mobDiagGrad" x1="0" y1="0" x2="1" y2="0">
-            <stop offset="0%"   stop-color="rgba(255,107,53,0)"/>
-            <stop offset="20%"  stop-color="rgba(255,107,53,0.9)"/>
-            <stop offset="50%"  stop-color="rgba(255,255,255,1)"/>
-            <stop offset="80%"  stop-color="rgba(61,155,255,0.9)"/>
-            <stop offset="100%" stop-color="rgba(61,155,255,0)"/>
-          </linearGradient>
-          <filter id="mobDiagGlow">
-            <feGaussianBlur stdDeviation="0.8" result="b"/>
-            <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
-          </filter>
-        </defs>
-        <line x1="0" y1="62" x2="100" y2="38"
-              stroke="url(#mobDiagGrad)"
-              stroke-width="0.4"
-              filter="url(#mobDiagGlow)"/>
-      </svg>
-
-    </div>
-  </div>
-
 </section>
 
 <div class="divider"></div>
@@ -1799,12 +1150,12 @@ footer{background:var(--navy);border-top:1px solid var(--glass-border);padding:3
     <p class="section-sub">Soluciones digitales completas para cada etapa de tu negocio.</p>
   </div>
   <div class="services-grid">
-    <div class="service-card reveal"><div class="svc-icon si-blue">🌐</div><div class="svc-title">Páginas Web Profesionales</div><div class="svc-desc">Sitios web modernos, rápidos y optimizados que representan tu marca y convierten visitantes en clientes reales.</div><div class="svc-link"><a href="https://wa.me/TU_NUMERO" target="_blank" rel="noopener" style="color:inherit;text-decoration:none;display:inline-flex;align-items:center;gap:.35rem">Preguntar ahora <svg width="13" height="13" viewBox="0 0 13 13" fill="none"><path d="M2 6.5h9M7 2.5l4 4-4 4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></a></div></div>
-    <div class="service-card reveal" style="transition-delay:.08s"><div class="svc-icon si-violet">⚡</div><div class="svc-title">Aplicaciones Web a Medida</div><div class="svc-desc">Desarrollamos aplicaciones web personalizadas para automatizar procesos, gestionar datos y escalar tu operación.</div><div class="svc-link"><a href="https://wa.me/TU_NUMERO" target="_blank" rel="noopener" style="color:inherit;text-decoration:none;display:inline-flex;align-items:center;gap:.35rem">Preguntar ahora <svg width="13" height="13" viewBox="0 0 13 13" fill="none"><path d="M2 6.5h9M7 2.5l4 4-4 4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></a></div></div>
-    <div class="service-card reveal" style="transition-delay:.16s"><div class="svc-icon si-cyan">🎯</div><div class="svc-title">Landing Pages para Marketing</div><div class="svc-desc">Páginas de aterrizaje de alta conversión para campañas publicitarias, lanzamientos y captación de leads.</div><div class="svc-link"><a href="https://wa.me/TU_NUMERO" target="_blank" rel="noopener" style="color:inherit;text-decoration:none;display:inline-flex;align-items:center;gap:.35rem">Preguntar ahora <svg width="13" height="13" viewBox="0 0 13 13" fill="none"><path d="M2 6.5h9M7 2.5l4 4-4 4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></a></div></div>
-    <div class="service-card reveal" style="transition-delay:.24s"><div class="svc-icon si-green">🔄</div><div class="svc-title">Rediseño y Optimización</div><div class="svc-desc">Modernizamos sitios web existentes mejorando velocidad, UX, diseño y posicionamiento en buscadores.</div><div class="svc-link"><a href="https://wa.me/TU_NUMERO" target="_blank" rel="noopener" style="color:inherit;text-decoration:none;display:inline-flex;align-items:center;gap:.35rem">Preguntar ahora <svg width="13" height="13" viewBox="0 0 13 13" fill="none"><path d="M2 6.5h9M7 2.5l4 4-4 4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></a></div></div>
-    <div class="service-card reveal" style="transition-delay:.32s"><div class="svc-icon si-orange">🔗</div><div class="svc-title">Integraciones y Automatización</div><div class="svc-desc">Conectamos tus herramientas digitales y automatizamos flujos de trabajo para que tu negocio funcione solo.</div><div class="svc-link"><a href="https://wa.me/TU_NUMERO" target="_blank" rel="noopener" style="color:inherit;text-decoration:none;display:inline-flex;align-items:center;gap:.35rem">Preguntar ahora <svg width="13" height="13" viewBox="0 0 13 13" fill="none"><path d="M2 6.5h9M7 2.5l4 4-4 4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></a></div></div>
-    <div class="service-card reveal" style="transition-delay:.4s"><div class="svc-icon si-pink">📱</div><div class="svc-title">Diseño UI/UX</div><div class="svc-desc">Interfaces intuitivas y visualmente atractivas centradas en la experiencia del usuario y la conversión.</div><div class="svc-link"><a href="https://wa.me/TU_NUMERO" target="_blank" rel="noopener" style="color:inherit;text-decoration:none;display:inline-flex;align-items:center;gap:.35rem">Preguntar ahora <svg width="13" height="13" viewBox="0 0 13 13" fill="none"><path d="M2 6.5h9M7 2.5l4 4-4 4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></a></div></div>
+    <div class="service-card reveal"><div class="svc-icon si-blue">🌐</div><div class="svc-title">Páginas Web Profesionales</div><div class="svc-desc">Sitios web modernos, rápidos y optimizados que representan tu marca y convierten visitantes en clientes reales.</div><div class="svc-link">Saber más <svg width="13" height="13" viewBox="0 0 13 13" fill="none"><path d="M2 6.5h9M7 2.5l4 4-4 4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></div></div>
+    <div class="service-card reveal" style="transition-delay:.08s"><div class="svc-icon si-violet">⚡</div><div class="svc-title">Aplicaciones Web a Medida</div><div class="svc-desc">Desarrollamos aplicaciones web personalizadas para automatizar procesos, gestionar datos y escalar tu operación.</div><div class="svc-link">Saber más <svg width="13" height="13" viewBox="0 0 13 13" fill="none"><path d="M2 6.5h9M7 2.5l4 4-4 4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></div></div>
+    <div class="service-card reveal" style="transition-delay:.16s"><div class="svc-icon si-cyan">🎯</div><div class="svc-title">Landing Pages para Marketing</div><div class="svc-desc">Páginas de aterrizaje de alta conversión para campañas publicitarias, lanzamientos y captación de leads.</div><div class="svc-link">Saber más <svg width="13" height="13" viewBox="0 0 13 13" fill="none"><path d="M2 6.5h9M7 2.5l4 4-4 4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></div></div>
+    <div class="service-card reveal" style="transition-delay:.24s"><div class="svc-icon si-green">🔄</div><div class="svc-title">Rediseño y Optimización</div><div class="svc-desc">Modernizamos sitios web existentes mejorando velocidad, UX, diseño y posicionamiento en buscadores.</div><div class="svc-link">Saber más <svg width="13" height="13" viewBox="0 0 13 13" fill="none"><path d="M2 6.5h9M7 2.5l4 4-4 4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></div></div>
+    <div class="service-card reveal" style="transition-delay:.32s"><div class="svc-icon si-orange">🔗</div><div class="svc-title">Integraciones y Automatización</div><div class="svc-desc">Conectamos tus herramientas digitales y automatizamos flujos de trabajo para que tu negocio funcione solo.</div><div class="svc-link">Saber más <svg width="13" height="13" viewBox="0 0 13 13" fill="none"><path d="M2 6.5h9M7 2.5l4 4-4 4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></div></div>
+    <div class="service-card reveal" style="transition-delay:.4s"><div class="svc-icon si-pink">📱</div><div class="svc-title">Diseño UI/UX</div><div class="svc-desc">Interfaces intuitivas y visualmente atractivas centradas en la experiencia del usuario y la conversión.</div><div class="svc-link">Saber más <svg width="13" height="13" viewBox="0 0 13 13" fill="none"><path d="M2 6.5h9M7 2.5l4 4-4 4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></div></div>
   </div>
 </section>
 
@@ -1943,20 +1294,16 @@ footer{background:var(--navy);border-top:1px solid var(--glass-border);padding:3
 
 <div class="divider"></div>
 
-<!-- PRICING + CTA — una sola sección -->
+<!-- PRICING -->
 <section id="pricing" aria-labelledby="pricing-title">
-  <div class="cta-bg"></div>
-
-  <!-- Header Inversión -->
   <div class="pricing-header reveal">
     <div class="section-label">Inversión</div>
     <h2 class="section-title" id="pricing-title">Rangos de Inversión</h2>
     <p class="section-sub">Precios orientativos. Cada proyecto es único; solicita una propuesta personalizada gratuita.</p>
   </div>
+  <div class="pricing-grid">
 
-  <!-- Desktop: grid 3 columnas | Móvil: carrusel -->
-  <div class="pricing-grid" id="pricingGrid">
-    <div class="pricing-card" data-plan="0">
+    <div class="pricing-card reveal">
       <div class="pricing-plan">Esencial</div>
       <div class="pricing-price">$500 <span>USD</span></div>
       <p class="pricing-desc">Ideal para emprendedores y negocios que necesitan presencia digital profesional.</p>
@@ -1971,7 +1318,7 @@ footer{background:var(--navy);border-top:1px solid var(--glass-border);padding:3
       <a href="#contact" class="btn-secondary" style="text-align:center;justify-content:center" onclick="trackCTA && trackCTA('pricing-esencial')">Consultar</a>
     </div>
 
-    <div class="pricing-card featured" data-plan="1">
+    <div class="pricing-card featured reveal" style="transition-delay:.1s">
       <div class="pricing-badge">Más Popular</div>
       <div class="pricing-plan">Profesional</div>
       <div class="pricing-price">$1.500 <span>USD</span></div>
@@ -1988,7 +1335,7 @@ footer{background:var(--navy);border-top:1px solid var(--glass-border);padding:3
       <a href="#contact" class="btn-primary" style="text-align:center;justify-content:center;border:none" onclick="trackCTA && trackCTA('pricing-profesional')">Solicitar Propuesta</a>
     </div>
 
-    <div class="pricing-card" data-plan="2">
+    <div class="pricing-card reveal" style="transition-delay:.2s">
       <div class="pricing-plan">A Medida</div>
       <div class="pricing-price">$3.000+ <span>USD</span></div>
       <p class="pricing-desc">Aplicaciones web completas, plataformas SaaS y soluciones empresariales complejas.</p>
@@ -2003,32 +1350,26 @@ footer{background:var(--navy);border-top:1px solid var(--glass-border);padding:3
       </ul>
       <a href="#contact" class="btn-secondary" style="text-align:center;justify-content:center" onclick="trackCTA && trackCTA('pricing-medida')">Hablemos de tu Proyecto</a>
     </div>
-  </div>
 
-  <!-- Dots carrusel — solo visibles en móvil -->
-  <div class="pricing-dots" id="pricingDots" aria-label="Seleccionar plan">
-    <button class="pricing-dot" aria-label="Plan Esencial"></button>
-    <button class="pricing-dot active" aria-label="Plan Profesional"></button>
-    <button class="pricing-dot" aria-label="Plan A Medida"></button>
   </div>
-
-  <p class="pricing-note reveal">
+  <p class="pricing-note">
     💡 Los precios son orientativos en USD. El costo final depende del alcance y complejidad del proyecto.<br>
     Todas las propuestas incluyen consulta gratuita de 30 minutos. Ofrecemos pago en cuotas.
   </p>
+</section>
 
-  <!-- CTA al fondo -->
-  <div class="pricing-cta-bottom reveal">
-    <div class="cta-bg"></div>
+<!-- CTA -->
+<section id="cta">
+  <div class="cta-bg"></div>
+  <div class="cta-content reveal">
     <div class="section-label" style="justify-content:center">¿Listo para empezar?</div>
     <h2 class="section-title">Tu proyecto merece una<br><span style="background:linear-gradient(135deg,var(--electric),var(--neon),var(--violet-light));-webkit-background-clip:text;-webkit-text-fill-color:transparent">solución extraordinaria</span></h2>
-    <p class="section-sub" style="margin:0 auto 2rem">Agenda una consulta gratuita de 30 minutos y descubre cómo podemos transformar tu negocio digital.</p>
+    <p class="section-sub">Agenda una consulta gratuita de 30 minutos y descubre cómo podemos transformar tu negocio digital.</p>
     <div class="cta-actions">
       <a href="#contact" class="btn-primary">Agendar Consulta Gratis <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
-      <a href="#contact" class="btn-secondary">Enviar Email</a>
+      <a href="/cdn-cgi/l/email-protection#137b7c7f72536476717c7d7277723d606766777a7c" class="btn-secondary">Enviar Email</a>
     </div>
   </div>
-
 </section>
 
 <div class="divider"></div>
@@ -2040,7 +1381,7 @@ footer{background:var(--navy);border-top:1px solid var(--glass-border);padding:3
       <div class="section-label">Hablemos</div>
       <h2 class="section-title">Inicia tu<br><span style="background:linear-gradient(135deg,var(--electric),var(--neon));-webkit-background-clip:text;-webkit-text-fill-color:transparent">Proyecto</span></h2>
       <p class="section-sub" style="margin-bottom:2rem">Cuéntanos sobre tu proyecto y recibe una propuesta personalizada en 24 horas.</p>
-      <div class="contact-detail"><div class="contact-icon">📧</div><div class="contact-detail-text"><span>Email</span><a href="/cdn-cgi/l/email-protection#50383f3c31102735323f3e3134317e23242534393f"><span class="__cf_email__" data-cfemail="bed6d1d2dffec9dbdcd1d0dfdadf90cdcacbdad7d1">[email&#160;protected]</span></a></div></div>
+      <div class="contact-detail"><div class="contact-icon">📧</div><div class="contact-detail-text"><span>Email</span><a href="mailto:hola@webonada.studio">hola@webonada.studio</a></div></div>
       <div class="contact-detail"><div class="contact-icon">💬</div><div class="contact-detail-text"><span>WhatsApp</span><a href="https://wa.me/1234567890?text=Hola%2C%20me%20interesa%20una%20consulta%20gratuita" target="_blank" rel="noopener noreferrer" aria-label="Abrir WhatsApp">+1 (234) 567-890</a></div></div>
       <div class="contact-detail"><div class="contact-icon">📍</div><div class="contact-detail-text"><span>Ubicación</span><a href="#">Trabajo 100% remoto · Todo Latinoamérica</a></div></div>
       <div class="contact-detail"><div class="contact-icon">⏱️</div><div class="contact-detail-text"><span>Tiempo de respuesta</span><a href="#">Menos de 24 horas</a></div></div>
@@ -2100,7 +1441,7 @@ footer{background:var(--navy);border-top:1px solid var(--glass-border);padding:3
   <div class="footer-top">
     <div class="footer-brand">
       <a href="#" class="logo logo-footer" aria-label="WeboNada Studio">
-        <span class="logo-row"><span class="logo-a"><span class="logo-char logo-char-W">W</span><span class="logo-char logo-char-e">e</span><span class="logo-char logo-char-b">b</span></span><span class="logo-o logo-char">o</span><span class="logo-b"><span class="logo-char logo-char-N">N</span><span class="logo-char logo-char-a2">a</span><span class="logo-char logo-char-d">d</span><span class="logo-char logo-char-a3">a</span></span></span>
+        <span class="logo-row"><span class="logo-a">Web</span><span class="logo-o">o</span><span class="logo-b">Nada</span></span>
         <span class="logo-sub">.Studio</span>
       </a>
       <p>Desarrollo web y software de alta calidad para empresas y emprendedores que quieren crecer en el mundo digital.</p>
@@ -2113,7 +1454,7 @@ footer{background:var(--navy);border-top:1px solid var(--glass-border);padding:3
     </div>
     <div class="footer-col"><h4>Servicios</h4><ul><li><a href="#services">Páginas Web</a></li><li><a href="#services">Aplicaciones Web</a></li><li><a href="#services">Landing Pages</a></li><li><a href="#services">Rediseño Web</a></li><li><a href="#services">Automatización</a></li></ul></div>
     <div class="footer-col"><h4>Empresa</h4><ul><li><a href="#portfolio">Portafolio</a></li><li><a href="#testimonials">Testimonios</a></li><li><a href="#process">Proceso</a></li><li><a href="#web-o-nada">Nuestra Filosofía</a></li><li><a href="#pricing">Precios</a></li></ul></div>
-    <div class="footer-col"><h4>Contacto</h4><ul><li><a href="/cdn-cgi/l/email-protection#f49c9b9895b48391969b9a959095da878081909d9b"><span class="__cf_email__" data-cfemail="f890979499b88f9d9a9796999c99d68b8c8d9c9197">[email&#160;protected]</span></a></li><li><a href="#contact">Agendar llamada</a></li><li><a href="#contact">WhatsApp</a></li><li><a href="#contact">Solicitar cotización</a></li></ul></div>
+    <div class="footer-col"><h4>Contacto</h4><ul><li><a href="mailto:hola@webonada.studio">hola@webonada.studio</a></li><li><a href="#contact">Agendar llamada</a></li><li><a href="#contact">WhatsApp</a></li><li><a href="#contact">Solicitar cotización</a></li></ul></div>
   </div>
   <div class="footer-bottom">
     <p>© 2026 WeboNada.Studio Todos los derechos reservados. · <a href="/privacidad" style="color:inherit;text-decoration:underline">Política de Privacidad</a> · <a href="/cookies" style="color:inherit;text-decoration:underline">Cookies</a></p>
@@ -2123,7 +1464,7 @@ footer{background:var(--navy);border-top:1px solid var(--glass-border);padding:3
 
 <a href="#contact" class="float-cta" id="floatCta"><span class="float-dot"></span>Cotización Gratis</a>
 
-<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+<script>
 /* =============================================
    CONFIGURACIÓN GLOBAL
    ============================================= */
@@ -2194,23 +1535,16 @@ navDropdown.addEventListener('keydown', e => {
 const heroCard=document.getElementById('heroCard');
 const laptopCard=document.getElementById('laptopCard');
 if(heroCard&&laptopCard&&!prefersReducedMotion){
-  let targetRx=0,targetRy=0,curRx=0,curRy=0,tiltRaf=null;
-  function lerpTilt(){
-    curRx+=(targetRx-curRx)*.12;
-    curRy+=(targetRy-curRy)*.12;
-    laptopCard.style.transform=`perspective(700px) rotateX(${curRx}deg) rotateY(${curRy}deg)`;
-    if(Math.abs(targetRx-curRx)>.01||Math.abs(targetRy-curRy)>.01) tiltRaf=requestAnimationFrame(lerpTilt);
-    else tiltRaf=null;
-  }
   heroCard.addEventListener('mousemove',e=>{
-    const r=heroCard.getBoundingClientRect();
-    targetRx=(e.clientY-r.top-r.height/2)/r.height*-14;
-    targetRy=(e.clientX-r.left-r.width/2)/r.width*14;
-    if(!tiltRaf) tiltRaf=requestAnimationFrame(lerpTilt);
-  },{passive:true});
+    const r=laptopCard.getBoundingClientRect();
+    const rx=(e.clientY-r.top-r.height/2)/r.height*-14;
+    const ry=(e.clientX-r.left-r.width/2)/r.width*14;
+    laptopCard.style.transform=`perspective(700px) rotateX(${rx}deg) rotateY(${ry}deg)`;
+  });
   heroCard.addEventListener('mouseleave',()=>{
-    targetRx=0;targetRy=0;
-    if(!tiltRaf) tiltRaf=requestAnimationFrame(lerpTilt);
+    laptopCard.style.transition='transform .6s cubic-bezier(.23,1,.32,1)';
+    laptopCard.style.transform='perspective(700px) rotateX(0) rotateY(0)';
+    setTimeout(()=>{laptopCard.style.transition='transform .07s linear';},650);
   });
 }
 
@@ -2322,7 +1656,7 @@ async function submitForm(e){
         step.classList.add('active');
         if(!prefersReducedMotion) animSpine((i+1)/steps.length*100);
         else spineFill.style.width='100%';
-      },prefersReducedMotion ? 0 : i*1400));
+      },prefersReducedMotion ? 0 : i*900));
     }
   },{threshold:0.1});
   obs.observe(timeline);
@@ -2330,9 +1664,9 @@ async function submitForm(e){
   function animSpine(tp){
     const isMob=window.innerWidth<=768;
     const from=isMob?(parseFloat(spineFill.style.height)||0):(parseFloat(spineFill.style.width)||0);
-    const dur=900,t0=performance.now();
+    const dur=750,t0=performance.now();
     (function tick(now){
-      const p=Math.min((now-t0)/dur,1),ease=p<0.5?2*p*p:1-Math.pow(-2*p+2,2)/2,val=(from+(tp-from)*ease)+'%';
+      const p=Math.min((now-t0)/dur,1),ease=1-Math.pow(1-p,3),val=(from+(tp-from)*ease)+'%';
       if(isMob)spineFill.style.height=val;else spineFill.style.width=val;
       if(p<1)requestAnimationFrame(tick);
     })(t0);
@@ -2340,11 +1674,13 @@ async function submitForm(e){
 })();
 
 /* =============================================
-   PARTÍCULAS — esfera eliminada, más partículas
+   ANIMACIONES RAF UNIFICADAS (particles + sphere)
+   Optimizado con spatial hashing O(n) para partículas
    ============================================= */
 (function(){
   if(prefersReducedMotion) return;
 
+  // ---- PARTÍCULAS con spatial hashing ----
   const pc=document.getElementById('particle-canvas');
   const pctx=pc ? pc.getContext('2d') : null;
   let pW=0,pH=0;
@@ -2357,15 +1693,15 @@ async function submitForm(e){
   resizeParticle();
   window.addEventListener('resize',resizeParticle,{passive:true});
 
-  // 110 partículas en lugar de 60, distancia de conexión aumentada a 150px
   const CELL=120, MAX_DIST=120;
   const P=[];
-  if(pc) for(let i=0;i<90;i++) P.push({
+  if(pc) for(let i=0;i<60;i++) P.push({
     x:Math.random()*pW, y:Math.random()*pH,
     vx:(Math.random()-.5)*.3, vy:(Math.random()-.5)*.3,
     r:Math.random()*1.5+.5, a:Math.random()
   });
 
+  // Spatial hash grid
   function buildGrid(particles){
     const grid={};
     particles.forEach((p,i)=>{
@@ -2386,8 +1722,28 @@ async function submitForm(e){
     return result;
   }
 
+  // ---- ESFERA 3D ----
+  const sc=document.getElementById('three-canvas');
+  const sctx=sc ? sc.getContext('2d') : null;
+  let sW=0,sH=0,t=0;
+
+  function resizeSphere(){
+    if(!sc) return;
+    sW=sc.width=innerWidth;
+    sH=sc.height=innerHeight;
+  }
+  resizeSphere();
+  window.addEventListener('resize',resizeSphere,{passive:true});
+
+  const pts=Array.from({length:180},(_,i)=>{
+    const th=Math.acos(1-2*(i+.5)/180),ph=Math.PI*(1+Math.sqrt(5))*i;
+    return{x:Math.sin(th)*Math.cos(ph),y:Math.sin(th)*Math.sin(ph),z:Math.cos(th)};
+  });
+
+  // ---- LOOP UNIFICADO ----
   let rafId;
   function mainLoop(){
+    // Partículas
     if(pctx){
       pctx.clearRect(0,0,pW,pH);
       P.forEach(p=>{
@@ -2399,9 +1755,9 @@ async function submitForm(e){
         pctx.fillStyle=`rgba(61,155,255,${p.a*.6})`;
         pctx.fill();
       });
+      // Spatial hashing para líneas: O(n) en lugar de O(n²)
       const grid=buildGrid(P);
       const drawn=new Set();
-      const lineBuckets={};
       P.forEach((p,i)=>{
         const neighbors=getNeighbors(grid,p);
         neighbors.forEach(j=>{
@@ -2411,26 +1767,58 @@ async function submitForm(e){
           drawn.add(key);
           const dx=p.x-P[j].x, dy=p.y-P[j].y, d=Math.sqrt(dx*dx+dy*dy);
           if(d<MAX_DIST){
-            const alpha=Math.round((1-d/MAX_DIST)*4)/4;
-            if(!lineBuckets[alpha]) lineBuckets[alpha]=[];
-            lineBuckets[alpha].push([p.x,p.y,P[j].x,P[j].y]);
+            pctx.beginPath();
+            pctx.moveTo(p.x,p.y);
+            pctx.lineTo(P[j].x,P[j].y);
+            pctx.strokeStyle=`rgba(26,111,255,${(1-d/MAX_DIST)*.15})`;
+            pctx.lineWidth=.5;
+            pctx.stroke();
           }
         });
       });
-      pctx.lineWidth=.5;
-      for(const alpha in lineBuckets){
-        pctx.strokeStyle=`rgba(26,111,255,${alpha*.15})`;
-        pctx.beginPath();
-        lineBuckets[alpha].forEach(([x1,y1,x2,y2])=>{
-          pctx.moveTo(x1,y1);
-          pctx.lineTo(x2,y2);
-        });
-        pctx.stroke();
-      }
     }
+
+    // Esfera
+    if(sctx){
+      sctx.clearRect(0,0,sW,sH);
+      t+=.005;
+      const cx=sW*.78,cy=sH*.5,R=Math.min(sW,sH)*.18;
+      const proj=pts.map(p=>{
+        const cT=Math.cos(t),sT=Math.sin(t);
+        const rx=p.x*cT-p.z*sT,rz=p.x*sT+p.z*cT,ry=p.y;
+        const pz=rz+2.5,sc2=1.8/pz;
+        return{sx:cx+rx*R*sc2,sy:cy+ry*R*sc2,a:(rz+1)/2,rz};
+      }).sort((a,b)=>a.rz-b.rz);
+      proj.forEach((p,i)=>{
+        proj.slice(i+1,i+5).forEach(q=>{
+          const dx=p.sx-q.sx,dy=p.sy-q.sy,d=Math.sqrt(dx*dx+dy*dy);
+          if(d<R*.25){
+            sctx.beginPath();
+            sctx.moveTo(p.sx,p.sy);
+            sctx.lineTo(q.sx,q.sy);
+            sctx.strokeStyle=`rgba(61,155,255,${Math.min(p.a,q.a)*.15})`;
+            sctx.lineWidth=.5;
+            sctx.stroke();
+          }
+        });
+      });
+      proj.forEach(p=>{
+        if(p.a>.1){
+          sctx.beginPath();
+          sctx.arc(p.sx,p.sy,p.a*2,0,Math.PI*2);
+          const g=sctx.createRadialGradient(p.sx,p.sy,0,p.sx,p.sy,p.a*2);
+          g.addColorStop(0,`rgba(0,212,255,${p.a*.9})`);
+          g.addColorStop(1,'rgba(26,111,255,0)');
+          sctx.fillStyle=g;
+          sctx.fill();
+        }
+      });
+    }
+
     rafId=requestAnimationFrame(mainLoop);
   }
 
+  // Pausar cuando la pestaña no es visible (ahorro de batería)
   document.addEventListener('visibilitychange',()=>{
     if(document.hidden){ cancelAnimationFrame(rafId); }
     else { rafId=requestAnimationFrame(mainLoop); }
@@ -2439,37 +1827,33 @@ async function submitForm(e){
   rafId=requestAnimationFrame(mainLoop);
 })();
 
-/* scroll glow eliminado */
-
 /* =============================================
    CONTADOR ANIMADO
    ============================================= */
-/* =============================================
-   CONTADOR ANIMADO — todos terminan al mismo tiempo
-   ============================================= */
+function animCount(el,target,suffix){
+  if(prefersReducedMotion){ el.textContent=target+suffix; return; }
+  let c=0;
+  const inc=target/60;
+  const iv=setInterval(()=>{
+    c=Math.min(c+inc,target);
+    el.textContent=Math.floor(c)+suffix;
+    if(c>=target)clearInterval(iv);
+  },16);
+}
+
+// Activar contadores al entrar en viewport
 const counterObs=new IntersectionObserver(entries=>{
   entries.forEach(e=>{
-    if(!e.isIntersecting) return;
-    counterObs.unobserve(e.target);
-    const group=e.target.closest('.hero-stats');
-    const els=group ? Array.from(group.querySelectorAll('[data-counter]')) : [e.target];
-    if(prefersReducedMotion){
-      els.forEach(el=>{ el.textContent=el.dataset.target+(el.dataset.suffix||''); });
-      return;
+    if(e.isIntersecting){
+      const el=e.target;
+      const target=parseFloat(el.dataset.target||el.textContent);
+      const suffix=el.dataset.suffix||'';
+      animCount(el,target,suffix);
+      counterObs.unobserve(el);
     }
-    const DURATION=2000, t0=performance.now();
-    const counters=els.map(el=>({el,target:parseFloat(el.dataset.target),suffix:el.dataset.suffix||''}));
-    (function tick(now){
-      const p=Math.min((now-t0)/DURATION,1);
-      const ease=1-Math.pow(1-p,3);
-      counters.forEach(({el,target,suffix})=>{ el.textContent=Math.floor(ease*target)+suffix; });
-      if(p<1) requestAnimationFrame(tick);
-      else counters.forEach(({el,target,suffix})=>{ el.textContent=target+suffix; });
-    })(t0);
   });
 },{threshold:0.5});
-const firstCounter=document.querySelector('[data-counter]');
-if(firstCounter) counterObs.observe(firstCounter);
+document.querySelectorAll('[data-counter]').forEach(el=>counterObs.observe(el));
 
 /* =============================================
    SERVICE CARDS — spotlight effect
@@ -2568,129 +1952,26 @@ document.querySelectorAll('.service-card').forEach(card=>{
   update(false);
 })();
 
-
-/* =============================================
-   PRICING CAROUSEL — solo en móvil
-   ============================================= */
-(function(){
-  const grid = document.getElementById('pricingGrid');
-  const dots = document.querySelectorAll('.pricing-dot');
-  if(!grid) return;
-
-  const cards = Array.from(grid.querySelectorAll('.pricing-card'));
-  let current = 1; // arranca en "Profesional"
-  let startX = 0, dragging = false;
-
-  function isMobile(){ return window.innerWidth <= 768; }
-
-  function activate(idx){
-    if(!isMobile()) return;
-    current = Math.max(0, Math.min(idx, cards.length - 1));
-    cards.forEach((c, i) => c.classList.toggle('pc-active', i === current));
-    dots.forEach((d, i) => d.classList.toggle('active', i === current));
-
-    // Desplazar sin overflow scroll — usamos translateX en cada card
-    const offset = current * 100;
-    cards.forEach((c, i) => {
-      const diff = i - current;
-      c.style.transform = diff === 0
-        ? 'scale(1) translateX(0)'
-        : `scale(.93) translateX(${diff * 105}%)`;
-      c.style.opacity = diff === 0 ? '1' : '0.45';
-      c.style.position = diff === 0 ? 'relative' : 'absolute';
-      c.style.top = diff === 0 ? '' : '0';
-      c.style.left = diff === 0 ? '' : '50%';
-      c.style.marginLeft = diff === 0 ? '' : '-44%';
-      c.style.zIndex = diff === 0 ? '2' : '1';
-      c.style.pointerEvents = diff === 0 ? '' : 'none';
-    });
-  }
-
-  function setupMobile(){
-    if(!isMobile()) return;
-    grid.style.position = 'relative';
-    grid.style.minHeight = cards[0].offsetHeight + 'px';
-    activate(current);
-  }
-
-  function resetDesktop(){
-    cards.forEach(c => {
-      c.style.transform = '';
-      c.style.opacity = '';
-      c.style.position = '';
-      c.style.top = '';
-      c.style.left = '';
-      c.style.marginLeft = '';
-      c.style.zIndex = '';
-      c.style.pointerEvents = '';
-    });
-    grid.style.position = '';
-    grid.style.minHeight = '';
-  }
-
-  // Dots
-  dots.forEach((d, i) => d.addEventListener('click', () => activate(i)));
-
-  // Touch swipe
-  grid.addEventListener('touchstart', e => { startX = e.touches[0].clientX; dragging = true; }, {passive:true});
-  grid.addEventListener('touchend', e => {
-    if(!dragging) return;
-    const dx = e.changedTouches[0].clientX - startX;
-    if(dx < -40) activate(current + 1);
-    else if(dx > 40) activate(current - 1);
-    dragging = false;
-  }, {passive:true});
-
-  // Resize
-  let lastMob = isMobile();
-  window.addEventListener('resize', () => {
-    const mob = isMobile();
-    if(mob !== lastMob){
-      lastMob = mob;
-      mob ? setupMobile() : resetDesktop();
-    }
-    if(mob) { grid.style.minHeight = cards[current].offsetHeight + 'px'; }
-  }, {passive:true});
-
-  // Init
-  if(isMobile()) setupMobile();
-})();
-
-/* =============================================
-   LOGO AUTO-PLAY ANIMATION on load
-   ============================================= */
-(function(){
-  // Add intro class to ALL logos after 0.2s
-  setTimeout(()=>{
-    document.querySelectorAll('.logo').forEach(logo=>{
-      logo.classList.add('logo-intro');
-      // Remove class after animation completes so hover still works
-      setTimeout(()=> logo.classList.remove('logo-intro'), 1100);
-    });
-  }, 200);
-})();
-
-/* =============================================
-   FILOSOFÍA SPLIT SCREEN — animaciones eliminadas
-   ============================================= */
-
 /* =============================================
    COOKIE BANNER (GDPR/LGPD)
    ============================================= */
 (function(){
   const banner=document.getElementById('cookie-banner');
   if(!banner) return;
+  // Check if already accepted/declined
   if(localStorage.getItem('cookie-consent')) return;
   setTimeout(()=>banner.classList.add('show'), 1500);
   document.getElementById('cookieAccept').addEventListener('click',()=>{
     localStorage.setItem('cookie-consent','accepted');
     banner.classList.remove('show');
+    // Aquí puedes inicializar GA4 u otros trackers si los cargaste con consentimiento
   });
   document.getElementById('cookieDecline').addEventListener('click',()=>{
     localStorage.setItem('cookie-consent','declined');
     banner.classList.remove('show');
   });
 })();
+
 </script>
 </body>
 </html>
