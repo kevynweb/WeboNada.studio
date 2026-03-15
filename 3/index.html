@@ -129,11 +129,11 @@ body{font-family:var(--font-body);background:var(--navy);color:var(--white);over
 .logo-intro .logo-char-a3{animation:charDance .55s cubic-bezier(.34,1.56,.64,1) both .30s}
 /* Scrolled nav: logo glow */
 nav.scrolled .logo-a, nav.scrolled .logo-b{
-  filter: drop-shadow(0 0 8px rgba(204,214,246,.35)) brightness(1.1);
+  filter: drop-shadow(0 0 8px rgba(61,155,255,.55)) brightness(1.15);
   transition: filter .4s;
 }
 nav.scrolled .logo-o{
-  text-shadow:0 0 18px rgba(204,214,246,.2);
+  text-shadow:0 0 22px rgba(61,155,255,.9),0 0 45px rgba(61,155,255,.5);
 }
 @keyframes charDance{
   0%{transform:translateY(0) rotate(0) scale(1)}
@@ -142,15 +142,13 @@ nav.scrolled .logo-o{
   100%{transform:translateY(0) rotate(0) scale(1)}
 }
 
-.logo-a,.logo-b{font-size:2.9rem;font-weight:900;letter-spacing:-1px;color:#ccd6f6;-webkit-text-fill-color:#ccd6f6;transition:filter .35s;will-change:filter}
-.logo-a{margin-right:3px}
-.logo-b{margin-left:3px}
+.logo-a,.logo-b{font-size:2.9rem;font-weight:800;letter-spacing:-.5px;color:var(--electric);-webkit-text-fill-color:var(--electric);transition:filter .35s;will-change:filter}
 .logo-o{
   font-size:2.9rem;
-  font-weight:200;
-  color:rgba(255,255,255,.2);
-  -webkit-text-fill-color:rgba(255,255,255,.2);
-  margin:0 4px;
+  font-weight:300;
+  color:#f0f6ff;
+  -webkit-text-fill-color:#f0f6ff;
+  margin:0 1px;
   line-height:1;
   position:relative;
   top:0px;
@@ -160,15 +158,15 @@ nav.scrolled .logo-o{
   0%,100%{opacity:1}
   50%{opacity:.75}
 }
-.logo-sub{font-size:.58rem;font-weight:400;letter-spacing:5px;color:rgba(204,214,246,.25);-webkit-text-fill-color:rgba(204,214,246,.25)}
-.logo:hover .logo-a,.logo:hover .logo-b{filter:brightness(1.2) drop-shadow(0 0 12px rgba(204,214,246,.5))}
+.logo-sub{font-size:.58rem;font-weight:400;letter-spacing:3.5px;color:rgba(255,255,255,.28);-webkit-text-fill-color:rgba(255,255,255,.28)}
+.logo:hover .logo-a,.logo:hover .logo-b{filter:brightness(1.4) drop-shadow(0 0 10px rgba(61,155,255,.8))}
 .logo:hover .logo-o{
-  color:rgba(255,255,255,.3);-webkit-text-fill-color:rgba(255,255,255,.3);
+  color:#f0f6ff;-webkit-text-fill-color:#f0f6ff;
   animation:none;
 }
-.logo-footer .logo-a,.logo-footer .logo-b{font-size:1.25rem;font-weight:900;letter-spacing:-1px}
-.logo-footer .logo-o{font-size:1.25rem;font-weight:200;top:0px}
-.logo-footer .logo-sub{font-size:.54rem;letter-spacing:5px}
+.logo-footer .logo-a,.logo-footer .logo-b{font-size:1.25rem}
+.logo-footer .logo-o{font-size:1.25rem;font-weight:300;top:0px}
+.logo-footer .logo-sub{font-size:.54rem;letter-spacing:3px}
 
 /* =============================================
    NAV  —  CAMBIO 2: sólo hamburger visible
@@ -253,7 +251,7 @@ nav.scrolled{background:rgba(5,13,26,.92);backdrop-filter:blur(20px);border-bott
   font-family:var(--font-display);
   font-size:.75rem;font-weight:600;color:var(--violet-light);letter-spacing:.3px;
   width:fit-content;
-  margin-bottom:1rem;
+  margin-bottom:1.4rem;
   animation:fadeSlideUp .8s ease both;
 }
 .hero-h1::before{
@@ -404,10 +402,6 @@ section{padding:8rem 5%;position:relative}
 .section-title{font-family:var(--font-display);font-size:clamp(2rem,3.5vw,2.8rem);font-weight:800;letter-spacing:-1.5px;line-height:1.15;margin-bottom:1rem}
 .section-sub{color:var(--muted);font-size:1rem;max-width:500px;line-height:1.7;font-weight:300}
 .divider{height:1px;background:linear-gradient(90deg,transparent,var(--glass-border),transparent);margin:0 5%}
-@media(max-width:768px){
-  /* Ocultar el primer divider (entre hero y web-o-nada) en mobile */
-  #hero + .divider{ display:none }
-}
 .reveal{opacity:0;transform:translateY(36px);transition:opacity .75s ease,transform .75s ease}
 .reveal.visible{opacity:1;transform:translateY(0)}
 
@@ -705,79 +699,51 @@ section{padding:8rem 5%;position:relative}
 .won-mobile{ display:none }
 
 @media(max-width:768px){
-  /* Ocultar split horizontal desktop, mostrar versión mobile */
+  /* Ocultar split horizontal desktop */
   .won-split{ display:none }
   .won-mobile{ display:flex; flex-direction:column }
-  /* Sin padding ni espacio en la sección */
-  #web-o-nada{ padding:0!important; background:transparent; }
-  .won-header{ padding:0; display:none!important; }
+  /* Quitar padding vertical de la sección entera en mobile */
+  #web-o-nada{ padding-top:0; padding-bottom:0; }
+  .won-header{ padding:2.5rem 6% 0; }
 
-  /* Stage */
+  /* Stage ocupa 100% del ancho y alto visible — de borde a borde */
   .won-mob-stage{
     position:relative;
     width:100%;
-    height:100vh;
+    height:110vw;
+    min-height:400px;
+    max-height:560px;
     overflow:hidden;
-    margin-top:0;
-  }
-  .won-mobile{
-    margin-top:90px;
+    margin-top:2rem;
   }
 
-  /* FRANJA 1: WEB */
+  /* Mitad superior — WEB: contenido pegado arriba-izquierda */
   .won-mob-top{
     position:absolute;
     inset:0;
     background:linear-gradient(160deg,#091e38 0%,#061020 100%);
-    clip-path:polygon(0 0, 100% 0, 100% 33%, 0 42%);
+    clip-path:polygon(0 0, 100% 0, 100% 38%, 0 62%);
     display:flex;
     flex-direction:column;
-   padding-top:30px;
-padding-right:9%;
-padding-bottom:0;
-padding-left:9%;
+    justify-content:flex-start;
+    align-items:flex-start;
+    padding:7% 9% 0;
   }
 
-  /* FRANJA 2: NADA */
+  /* Mitad inferior — NADA: contenido pegado abajo-derecha */
   .won-mob-bot{
     position:absolute;
     inset:0;
     background:#020407;
-    clip-path:polygon(0 42%, 100% 33%, 100% 82%, 0 75%);
+    clip-path:polygon(0 64%, 100% 40%, 100% 100%, 0 100%);
     display:flex;
     flex-direction:column;
-    justify-content:center;
+    justify-content:flex-end;
     align-items:flex-end;
-    padding:0 9%;
-    padding-top:180px;
+    padding:0 9% 7%;
   }
 
-  /* FRANJA 3: FRASE */
-  .won-mob-phrase{
-    position:absolute;
-    inset:0;
-    background:#0a1628;
-    clip-path:polygon(0 68%, 100% 75%, 100% 100%, 0 100%);
-    display:flex;
-    align-items:flex-end;
-    justify-content:center;
-    padding-bottom:150px;
-  }
-  .won-mob-phrase-text{
-    font-family:var(--font-display);
-    font-size:1.4rem;
-    font-weight:500;
-    color:var(--white);
-    text-align:center;
-    line-height:1.2;
-  }
-  .won-mob-phrase-text .accent{
-    background:linear-gradient(135deg,var(--electric),var(--neon),var(--violet-light));
-    -webkit-background-clip:text;
-    -webkit-text-fill-color:transparent;
-  }
-
-  /* SVG diagonales */
+  /* Línea diagonal luminosa encima de todo */
   .won-mob-svg{
     position:absolute;
     inset:0;
@@ -785,22 +751,6 @@ padding-left:9%;
     height:100%;
     pointer-events:none;
     z-index:10;
-  }
-
-  /* H1 pill */
-  .won-mob-h1{
-    display:inline-flex;align-items:center;gap:.5rem;
-    padding:.4rem 1rem;border-radius:50px;
-    background:rgba(168,85,247,.08);border:1px solid rgba(168,85,247,.25);
-    font-family:var(--font-display);
-    font-size:.75rem;font-weight:600;color:var(--violet-light);letter-spacing:.3px;
-    width:fit-content;
-    margin:0 auto 70px;
-    align-self:center;
-  }
-  .won-mob-h1::before{
-    content:'';width:5px;height:5px;border-radius:50%;flex-shrink:0;
-    background:var(--violet-light);box-shadow:0 0 8px rgba(168,85,247,.8);
   }
 
   /* Textos grandes */
@@ -1517,22 +1467,8 @@ footer{background:var(--navy);border-top:1px solid var(--glass-border);padding:3
   .hero-stats{justify-content:center}
 }
 @media(max-width:768px){
-  #hero{padding:5rem 5% 2rem;align-items:center;min-height:auto}
+  #hero{padding:6rem 5% 3rem;align-items:flex-start}
   .hero-content{padding-top:1rem}
-  /* Ocultar todo en el hero excepto el tagline */
-  .hero-diag-wrap,
-  .hero-sub,
-  .hero-visual-mobile,
-  .hero-actions,
-  .hero-stats,
-  .hero-visual{display:none!important}
-  /* Ocultar tagline y encabezado de filosofía */
-  .hero-tagline,
-  .won-header{display:none!important}
-  /* Quitar padding top de web-o-nada para que no haya espacio arriba */
-  #web-o-nada{padding-top:0!important}
-  /* Colapsar hero a cero para que no deje fondo visible */
-  #hero{min-height:0!important;padding:0!important;height:0!important;overflow:hidden}
 }
 
 
@@ -1544,36 +1480,6 @@ footer{background:var(--navy);border-top:1px solid var(--glass-border);padding:3
   letter-spacing:.3px;
   margin-top:.5rem;
   opacity:.85;
-}
-
-/* Diagonal inversa + frase hero */
-.hero-diag-wrap{
-  width:100%;
-  max-width:560px;
-  display:flex;
-  flex-direction:column;
-  align-items:center;
-  margin-bottom:1.6rem;
-  animation:fadeSlideUp .8s .15s ease both;
-}
-.hero-diag-svg{
-  width:100%;
-  height:18px;
-  display:block;
-  overflow:visible;
-}
-.hero-diag-phrase{
-  font-family:var(--font-display);
-  font-size:clamp(.78rem,1.2vw,.95rem);
-  font-weight:500;
-  color:var(--muted);
-  letter-spacing:.6px;
-  margin-top:.55rem;
-  opacity:.75;
-  text-align:center;
-}
-@media(max-width:768px){
-  .hero-diag-phrase{font-size:.75rem}
 }
 
 </style>
@@ -1655,6 +1561,9 @@ footer{background:var(--navy);border-top:1px solid var(--glass-border);padding:3
   <div class="orb orb-1"></div><div class="orb orb-2"></div><div class="orb orb-3"></div>
   
   <div class="hero-content">
+    <!-- H1 SEO: keyword principal que Google indexa -->
+    <h1 class="hero-h1">Diseño de páginas web profesionales</h1>
+
     <!-- Tagline de marca: visualmente grande, semánticamente secundario -->
     <p class="hero-tagline" aria-hidden="false">
       No hacemos cualquier
@@ -1662,25 +1571,6 @@ footer{background:var(--navy);border-top:1px solid var(--glass-border);padding:3
         <span class="accent">Web</span>o<span class="tagline-nada">Nada</span>
       </span>
     </p>
-
-    <!-- Diagonal inversa + frase secundaria -->
-    <div class="hero-diag-wrap" aria-hidden="true">
-      <svg class="hero-diag-svg" viewBox="0 0 800 18" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
-        <defs>
-          <linearGradient id="herodiagGrad" x1="0" y1="0" x2="1" y2="0">
-            <stop offset="0%" stop-color="rgba(168,85,247,0)"/>
-            <stop offset="25%" stop-color="rgba(168,85,247,0.6)"/>
-            <stop offset="50%" stop-color="rgba(0,212,255,0.9)"/>
-            <stop offset="75%" stop-color="rgba(61,155,255,0.6)"/>
-            <stop offset="100%" stop-color="rgba(61,155,255,0)"/>
-          </linearGradient>
-          <filter id="herodiagGlow">
-            <feGaussianBlur stdDeviation="1.5" result="b"/>
-            <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
-          </filter>
-        </defs>
-        
-    </div>
 
     <p class="hero-sub">Creamos web modernas y construimos el estándar,<br>el resto solo es ancho de banda.<br></p>
 
@@ -1781,7 +1671,7 @@ footer{background:var(--navy);border-top:1px solid var(--glass-border);padding:3
 <!-- WEB O NADA — SPLIT SCREEN FILOSOFÍA -->
 <section id="web-o-nada" aria-label="Nuestra filosofía">
   <div class="won-header">
-    <h1 class="hero-h1" style="margin:0 auto 1rem">Diseño de páginas web profesionales</h1>
+    <div class="section-label" style="justify-content:center">Nuestra Filosofía</div>
     <h2 class="section-title" style="text-align:center;margin-bottom:1rem">¿Qué significa<br><span style="background:linear-gradient(135deg,var(--electric),var(--neon),var(--violet-light));-webkit-background-clip:text;-webkit-text-fill-color:transparent">Web o Nada?</span></h2>
    
   </div>
@@ -1835,7 +1725,6 @@ footer{background:var(--navy);border-top:1px solid var(--glass-border);padding:3
 
       <!-- WEB — mitad superior -->
       <div class="won-mob-top">
-        <h1 class="won-mob-h1">Diseño de páginas web profesionales</h1>
         <div class="won-mob-word-web">WEB</div>
         <div class="won-mob-label-web">— La herramienta</div>
         <div class="won-mob-sub-web">Rápida, elegante y efectiva por diseño. Cada milisegundo cuenta.</div>
@@ -1848,7 +1737,7 @@ footer{background:var(--navy);border-top:1px solid var(--glass-border);padding:3
         <div class="won-mob-sub-nada">O es excelente o no es nada. La mediocridad no tiene dirección IP.</div>
       </div>
 
-      <!-- Líneas diagonales luminosas -->
+      <!-- Línea diagonal luminosa -->
       <svg class="won-mob-svg" viewBox="0 0 100 100" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
         <defs>
           <linearGradient id="mobDiagGrad" x1="0" y1="0" x2="1" y2="0">
@@ -1858,28 +1747,16 @@ footer{background:var(--navy);border-top:1px solid var(--glass-border);padding:3
             <stop offset="80%"  stop-color="rgba(61,155,255,0.9)"/>
             <stop offset="100%" stop-color="rgba(61,155,255,0)"/>
           </linearGradient>
-          <linearGradient id="mobDiagGrad2" x1="0" y1="0" x2="1" y2="0">
-            <stop offset="0%"   stop-color="rgba(168,85,247,0)"/>
-            <stop offset="20%"  stop-color="rgba(168,85,247,0.9)"/>
-            <stop offset="50%"  stop-color="rgba(0,212,255,1)"/>
-            <stop offset="80%"  stop-color="rgba(168,85,247,0.9)"/>
-            <stop offset="100%" stop-color="rgba(168,85,247,0)"/>
-          </linearGradient>
           <filter id="mobDiagGlow">
             <feGaussianBlur stdDeviation="0.8" result="b"/>
             <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
           </filter>
         </defs>
-        <!-- Diagonal 1: WEB→NADA, baja de izq a der -->
-        <line x1="0" y1="42" x2="100" y2="33" stroke="url(#mobDiagGrad)" stroke-width="0.4" filter="url(#mobDiagGlow)"/>
-        <!-- Diagonal 2: NADA→FRASE, baja de izq a der más pronunciada -->
-        <line x1="0" y1="68" x2="100" y2="75" stroke="url(#mobDiagGrad2)" stroke-width="0.4" filter="url(#mobDiagGlow)"/>
+        <line x1="0" y1="62" x2="100" y2="38"
+              stroke="url(#mobDiagGrad)"
+              stroke-width="0.4"
+              filter="url(#mobDiagGlow)"/>
       </svg>
-
-      <!-- Tercera franja — frase -->
-      <div class="won-mob-phrase">
-        <p class="won-mob-phrase-text">No hacemos cualquier <br> <span class="accent">WebоNada</span></p>
-      </div>
 
     </div>
   </div>
